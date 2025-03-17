@@ -1,0 +1,17 @@
+/* Here is your custom css styles. */
+
+@font-face {
+    font-family: 'myFont';
+    src: url('../font/LXGWWenKaiGBScreenR.ttf');
+}
+
+body {
+    font-family: 'myFont';
+}
+
+*{
+    cursor: url("/medias/imgs/zhengchang.ico"),auto!important;
+}
+:active{
+    cursor: url("/medias/imgs/dianji.ico"),auto!important;
+}
