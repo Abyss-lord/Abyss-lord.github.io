@@ -242,16 +242,7 @@ mark {
 
 /* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色、透明效果. */
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
-    opacity: 0.8; 
-}
-/*如果想去掉banner图的颜色渐变效果，请将以下的css属性注释掉或者删除掉即可*/
-@-webkit-keyframes rainbow {
-    /* 动态切换背景颜色. */
-}
-
-@keyframes rainbow {
-    /* 动态切换背景颜色. */
+    background-image: linear-gradient(to right, #30aebf 0%, #0f709d 100%);
 }
 
 .text-color {
@@ -560,10 +551,10 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:after {
+/* .bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
-}
+} */
 
 .bg-cover:before,
 .bg-cover:after {
@@ -1337,12 +1328,12 @@ thead {
 }
 
 .chip-default .tag-length {
-    color: #e91e63;
+    color: rgba(66, 92, 118, .8);
     margin-top: 1px;
 }
 
 .chip-active .tag-length {
-    color: #fff;
+    color: #64c45b;
 }
 
 /* archive page. */

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Plord的个人空间</title>
+  
+  <subtitle>代码与哲思的旅程</subtitle>
+  <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://abyss-lord.github.io/"/>
+  <updated>2025-03-17T10:21:31.883Z</updated>
+  <id>http://abyss-lord.github.io/</id>
+  
+  <author>
+    <name>pancx</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>单利和复利</title>
+    <link href="http://abyss-lord.github.io/2025/03/17/qu-wen/2025-03-17-compound-interest/"/>
+    <id>http://abyss-lord.github.io/2025/03/17/qu-wen/2025-03-17-compound-interest/</id>
+    <published>2025-03-17T10:17:12.000Z</published>
+    <updated>2025-03-17T10:21:31.883Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;欧拉数&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#欧拉数&quot;&gt;&lt;/a&gt; 欧拉数&lt;/h2&gt;
+&lt;p&gt;欧拉数 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math</summary>
+        
+      
+    
+    
+    
+    <category term="趣闻" scheme="http://abyss-lord.github.io/categories/%E8%B6%A3%E9%97%BB/"/>
+    
+    
+    <category term="Summary" scheme="http://abyss-lord.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试页面</title>
+    <link href="http://abyss-lord.github.io/2025/03/17/2025-03-17-page-test/"/>
+    <id>http://abyss-lord.github.io/2025/03/17/2025-03-17-page-test/</id>
+    <published>2025-03-17T09:13:19.000Z</published>
+    <updated>2025-03-17T10:33:47.424Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#二级标题&quot;&gt;&lt;/a&gt; 二级标题&lt;/h2&gt;
+&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#三级标题&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="PKM" scheme="http://abyss-lord.github.io/categories/PKM/"/>
+    
+    
+    <category term="Test" scheme="http://abyss-lord.github.io/tags/Test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>炸金花</title>
+    <link href="http://abyss-lord.github.io/2025/03/17/qu-wen/2025-03-17-chinese-poker/"/>
+    <id>http://abyss-lord.github.io/2025/03/17/qu-wen/2025-03-17-chinese-poker/</id>
+    <published>2025-03-17T07:32:42.000Z</published>
+    <updated>2025-03-18T01:47:15.643Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;炸金花规则&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#炸金花规则&quot;&gt;&lt;/a&gt; 炸金花规则&lt;/h2&gt;
+&lt;p&gt;游戏参与人数 2-6 人，使用一副去掉到大小王的扑克牌，共 52</summary>
+        
+      
+    
+    
+    
+    
+    <category term="博弈论" scheme="http://abyss-lord.github.io/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/"/>
+    
+    <category term="概率" scheme="http://abyss-lord.github.io/tags/%E6%A6%82%E7%8E%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://abyss-lord.github.io/2025/03/17/hello-world/"/>
+    <id>http://abyss-lord.github.io/2025/03/17/hello-world/</id>
+    <published>2025-03-17T06:29:05.208Z</published>
+    <updated>2025-03-17T09:00:26.152Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
