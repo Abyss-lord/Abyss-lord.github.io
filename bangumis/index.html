@@ -511,6 +511,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -605,7 +608,7 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Pancx</a>
+                    <a href="/about" rel="external nofollow noreferrer">pancx</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -628,7 +631,7 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Pancx</a>
+                    <a href="/about" target="_blank">pancx</a>
                     !
                 </span>
             </div>
@@ -847,7 +850,7 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Pancx
+                            pancx
                             
                         </span>
                     </div>
@@ -885,7 +888,7 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Pancx
+                            pancx
                             
                         </span>
                     </div>
@@ -1077,10 +1080,10 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
 
             
                 <div class="container row center-align"
-                    style="margin-bottom: 0px !important;">
+                    style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
-                        &copy;<span id="year">2019</span>-<span id="year">2020</span>&nbsp;<i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
-                        <a href="/about" target="_blank">Pancx</a>
+                        &copy;<span id="year">2025</span>-<span id="year">2026</span>&nbsp;<i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
+                        <a href="/about" target="_blank">pancx</a>
                         <br>快乐每一天！
                         <br>
                         
@@ -1105,6 +1108,50 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
                                                             
                                                                 <br>
                                                                 
+                                                                    <span id="sitetime">载入运行时间...</span>
+                                                                    <script>
+                                                                        function siteTime() {
+                                                                            var seconds = 1000;
+                                                                            var minutes = seconds * 60;
+                                                                            var hours = minutes * 60;
+                                                                            var days = hours * 24;
+                                                                            var years = days * 365;
+                                                                            var today = new Date();
+                                                                            var startYear = "2025";
+                                                                            var startMonth = "3";
+                                                                            var startDate = "17";
+                                                                            var startHour = "0";
+                                                                            var startMinute = "0";
+                                                                            var startSecond = "0";
+                                                                            var todayYear = today.getFullYear();
+                                                                            var todayMonth = today.getMonth() + 1;
+                                                                            var todayDate = today.getDate();
+                                                                            var todayHour = today.getHours();
+                                                                            var todayMinute = today.getMinutes();
+                                                                            var todaySecond = today.getSeconds();
+                                                                            var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                                                                            var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                                                                            var diff = t2 - t1;
+                                                                            var diffYears = Math.floor(diff / years);
+                                                                            var diffDays = Math.floor((diff / days) - diffYears * 365);
+                                                                            var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                                                                            var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                                                                                minutes);
+                                                                            var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                                                                                diffMinutes * minutes) / seconds);
+                                                                            if (startYear == todayYear) {
+                                                                                document.getElementById("year").innerHTML = todayYear;
+                                                                                document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                                                                                    " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                            } else {
+                                                                                document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                                                                                document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                                                                                    " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                            }
+                                                                        }
+                                                                        setInterval(siteTime, 1000);
+                                                                    </script>
+                                                                    
                                                                         <br>
                                                                         
                     </div>
@@ -1115,7 +1162,7 @@ const g="undefined"==typeof pagenumsPre?m[b].parentNode.siblings().length:pagenu
 
 
 
-    <a href="mailto:851979198@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:p_lord@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 

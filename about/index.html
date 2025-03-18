@@ -408,7 +408,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">2</a></span>
+    <span class="count"><a href="/tags">4</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -418,7 +418,7 @@
                             <div class="profile center-align">
                                 <div class="avatar">
                                     <img src="/medias/avatar.jpg"
-                                        alt="Pancx" class="circle responsive-img avatar-img">
+                                        alt="pancx" class="circle responsive-img avatar-img">
                                 </div>
                                 <div class="author">
                                     <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
@@ -438,13 +438,13 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">2</a></span>
+    <span class="count"><a href="/tags">4</a></span>
     <span class="name">标签</span>
 </div>
 
 
                                     </div>
-                                    <div class="title">Pancx</div>
+                                    <div class="title">pancx</div>
                                     <div class="career">Big Data Engineer</div>
                                     <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
                                         
@@ -454,7 +454,7 @@
 
 
 
-    <a href="mailto:851979198@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:p_lord@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -500,7 +500,7 @@
 
 
 
-    <a href="mailto:851979198@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:p_lord@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -666,7 +666,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Test","Summary"]
+                data: ["Test","博弈论","概率","Summary"]
             }
         ],
         yAxis: [
@@ -679,7 +679,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [1,1],
+                data: [1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -803,6 +803,18 @@
             
             <a href="/tags/Test/">
                 <span class="chip center-align waves-effect waves-light chip-default">Test</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+                <span class="chip center-align waves-effect waves-light chip-default">博弈论</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E6%A6%82%E7%8E%87/">
+                <span class="chip center-align waves-effect waves-light chip-default">概率</span>
             </a>
             
             
@@ -939,10 +951,10 @@
 
             
                 <div class="container row center-align"
-                    style="margin-bottom: 0px !important;">
+                    style="margin-bottom: 15px !important;">
                     <div class="col s12 m8 l8 copy-right">
-                        &copy;<span id="year">2019</span>-<span id="year">2020</span>&nbsp;<i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
-                        <a href="/about" target="_blank">Pancx</a>
+                        &copy;<span id="year">2025</span>-<span id="year">2026</span>&nbsp;<i id="heartbeat" class="fa fas fa-heartbeat"></i>&nbsp;
+                        <a href="/about" target="_blank">pancx</a>
                         <br>快乐每一天！
                         <br>
                         
@@ -967,6 +979,50 @@
                                                             
                                                                 <br>
                                                                 
+                                                                    <span id="sitetime">载入运行时间...</span>
+                                                                    <script>
+                                                                        function siteTime() {
+                                                                            var seconds = 1000;
+                                                                            var minutes = seconds * 60;
+                                                                            var hours = minutes * 60;
+                                                                            var days = hours * 24;
+                                                                            var years = days * 365;
+                                                                            var today = new Date();
+                                                                            var startYear = "2025";
+                                                                            var startMonth = "3";
+                                                                            var startDate = "17";
+                                                                            var startHour = "0";
+                                                                            var startMinute = "0";
+                                                                            var startSecond = "0";
+                                                                            var todayYear = today.getFullYear();
+                                                                            var todayMonth = today.getMonth() + 1;
+                                                                            var todayDate = today.getDate();
+                                                                            var todayHour = today.getHours();
+                                                                            var todayMinute = today.getMinutes();
+                                                                            var todaySecond = today.getSeconds();
+                                                                            var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                                                                            var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                                                                            var diff = t2 - t1;
+                                                                            var diffYears = Math.floor(diff / years);
+                                                                            var diffDays = Math.floor((diff / days) - diffYears * 365);
+                                                                            var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                                                                            var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                                                                                minutes);
+                                                                            var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                                                                                diffMinutes * minutes) / seconds);
+                                                                            if (startYear == todayYear) {
+                                                                                document.getElementById("year").innerHTML = todayYear;
+                                                                                document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                                                                                    " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                            } else {
+                                                                                document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                                                                                document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                                                                                    " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                                                                            }
+                                                                        }
+                                                                        setInterval(siteTime, 1000);
+                                                                    </script>
+                                                                    
                                                                         <br>
                                                                         
                     </div>
@@ -977,7 +1033,7 @@
 
 
 
-    <a href="mailto:851979198@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:p_lord@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
