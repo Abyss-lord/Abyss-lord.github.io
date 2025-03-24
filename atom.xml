@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-03-24T03:45:52.581Z</updated>
+  <updated>2025-03-24T07:16:15.733Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RESTful 架构</title>
+    <link href="http://abyss-lord.github.io/2025/03/24/computer/2025-03-24-restful-api/"/>
+    <id>http://abyss-lord.github.io/2025/03/24/computer/2025-03-24-restful-api/</id>
+    <published>2025-03-24T07:13:21.000Z</published>
+    <updated>2025-03-24T07:16:15.733Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#定义&quot;&gt;&lt;/a&gt; 定义&lt;/h2&gt;
+&lt;p&gt;REST (Representational State</summary>
+        
+      
+    
+    
+    
+    <category term="计算机技术" scheme="http://abyss-lord.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="计算机基础" scheme="http://abyss-lord.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="REST架构" scheme="http://abyss-lord.github.io/tags/REST%E6%9E%B6%E6%9E%84/"/>
+    
+    <category term="HTTP协议" scheme="http://abyss-lord.github.io/tags/HTTP%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>参数表示方法及语法约定</title>
@@ -42,38 +72,6 @@
     <category term="计算机基础" scheme="http://abyss-lord.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
     <category term="技术文档写作" scheme="http://abyss-lord.github.io/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2025-03-21 小记</title>
-    <link href="http://abyss-lord.github.io/2025/03/21/diarly/2025-03-21-diary/"/>
-    <id>http://abyss-lord.github.io/2025/03/21/diarly/2025-03-21-diary/</id>
-    <published>2025-03-21T04:46:40.000Z</published>
-    <updated>2025-03-24T04:54:43.395Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;2025-03-21&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#2025-03-21&quot;&gt;&lt;/a&gt; 2025-03-21&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;心情: 🟡&lt;/li&gt;
-&lt;li&gt;天气:</summary>
-        
-      
-    
-    
-    
-    <category term="日记随笔" scheme="http://abyss-lord.github.io/categories/%E6%97%A5%E8%AE%B0%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="diary" scheme="http://abyss-lord.github.io/tags/diary/"/>
-    
-    <category term="生活" scheme="http://abyss-lord.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-    <category term="备婚日记" scheme="http://abyss-lord.github.io/tags/%E5%A4%87%E5%A9%9A%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   

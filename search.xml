@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>RESTful 架构</title>
+      <link href="/2025/03/24/computer/2025-03-24-restful-api/"/>
+      <url>/2025/03/24/computer/2025-03-24-restful-api/</url>
+      
+        <content type="html"><![CDATA[<h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2><p>REST (Representational State Transfer)，中文意思是：表述性状态转移。即一组架构约束条件和原则，如果一个架构符合 REST 的约束条件和原则，我们就称它为 RESTful 架构。</p><ol><li>在 REST 中，一切的内容都被认为是一种资源</li><li>每个资源都由 URI 唯一标识</li><li>使用统一的接口处理资源请求（POST/GET/PUT/DELETE/HEAD）</li><li>无状态（每次请求之前是无关联，没有 session ）</li></ol><p>REST 可以理解为 Client 和 Server 之间的一种交互方式，即 Client 发出 HTTP 请求，Server 端的资源发生状态转移，例如更新、删除等。而 RESTful API 则可以理解为 Server 端提供具有 REST 风格的接口。</p><p>符合 REST 规范的服务不应该保存客户端状态也不会保存应用的状态。</p><h3 id="资源和-uri"><a class="markdownIt-Anchor" href="#资源和-uri"></a> 资源和 URI</h3><ol><li>使用&nbsp;<code>/</code>&nbsp;来表示资源的层级关系</li><li>使用&nbsp;<code>?</code>&nbsp;用来过滤资源</li><li>使用&nbsp;<code>_</code>&nbsp;或者&nbsp;<code>-</code>&nbsp;让 URI 的可读性更好</li><li><code>,</code>&nbsp;或&nbsp;<code>;</code>&nbsp;可以用来表示同级资源的关系</li></ol><h3 id="统一资源接口"><a class="markdownIt-Anchor" href="#统一资源接口"></a> 统一资源接口</h3><table><thead><tr><th>请求方法</th><th>描述</th></tr></thead><tbody><tr><td>GET</td><td>获取某个资源。幂等（取多少次结果都没有变化）</td></tr><tr><td>POST</td><td>创建一个新的资源</td></tr><tr><td>PUT</td><td>替换某个已有的资源（更新操作） ，幂等（更新多次只保存一个结果）</td></tr><tr><td>DELETE</td><td>删除某个资源</td></tr><tr><td>HEAD</td><td>主要用于确认 URL 的有效性以及资源更新的日期时间等</td></tr><tr><td>PATCH</td><td>新引入的，对 PUT 方法的补充，用来对已知资源进行局部更新</td></tr></tbody></table><h3 id="资源表述"><a class="markdownIt-Anchor" href="#资源表述"></a> 资源表述</h3><p>客户端通过 HTTP 方法可以获取资源，确切的来说，客户端获取的只是资源的表述而已，传输的不是资源本身。资源的表述包括数据和描述数据的元数据，例如，HTTP 头 “Content-Type” 就是这样一个元数据属性。客户端可以通过 <code>Accept</code> 头请求一种特定格式的表述，服务端则通过 <code>Content-Type</code> 告诉客户端资源的表述形式。</p><h2 id="实践"><a class="markdownIt-Anchor" href="#实践"></a> 实践</h2><ol><li>将 API 部署在专用域名之下；</li><li>将 API 的版本号放入 URL；</li><li>在 RESTful 架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的 ”集合”（collection），所以 API 中的名词也应该使用复数。</li><li>如果记录数量很多，服务器不可能都将它们返回给用户。API 应该提供参数，过滤返回结果</li><li>服务器向用户返回的状态码和提示信息</li></ol><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://api.douban.com/v2/book/:id <span class="token punctuation">(</span>获取图书信息<span class="token punctuation">)</span>http://api.douban.com/v2/movie/subject/:id <span class="token punctuation">(</span>电影条目信息<span class="token punctuation">)</span>http://api.douban.com/v2/music/:id <span class="token punctuation">(</span>获取音乐信息<span class="token punctuation">)</span>http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获取同城活动<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机基础 </tag>
+            
+            <tag> REST架构 </tag>
+            
+            <tag> HTTP协议 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>参数表示方法及语法约定</title>
       <link href="/2025/03/24/computer/2025-03-24-arguments-signature/"/>
       <url>/2025/03/24/computer/2025-03-24-arguments-signature/</url>
@@ -23,35 +52,6 @@
             <tag> 计算机基础 </tag>
             
             <tag> 技术文档写作 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>2025-03-21 小记</title>
-      <link href="/2025/03/21/diarly/2025-03-21-diary/"/>
-      <url>/2025/03/21/diarly/2025-03-21-diary/</url>
-      
-        <content type="html"><![CDATA[<h2 id="2025-03-21"><a class="markdownIt-Anchor" href="#2025-03-21"></a> 2025-03-21</h2><ul><li>心情: 🟡</li><li>天气: ☀️</li></ul><p>今天再一次参观了花嫁丽舍的布拉格厅和维也纳厅，这种金光闪闪的颜色真的给人一种高贵的感觉。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 日记随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> diary </tag>
-            
-            <tag> 生活 </tag>
-            
-            <tag> 备婚日记 </tag>
             
         </tags>
       
