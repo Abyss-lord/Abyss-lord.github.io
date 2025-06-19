@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-03-24T07:16:15.733Z</updated>
+  <updated>2025-06-19T08:52:33.606Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gravitino事件系统设计</title>
+    <link href="http://abyss-lord.github.io/2025/06/19/gravitino/2025-06-19-gravitino-eventsystem/"/>
+    <id>http://abyss-lord.github.io/2025/06/19/gravitino/2025-06-19-gravitino-eventsystem/</id>
+    <published>2025-06-19T08:40:14.000Z</published>
+    <updated>2025-06-19T08:52:33.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#背景&quot;&gt;&lt;/a&gt; 背景&lt;/h2&gt;
+&lt;p&gt;为提升&amp;nbsp;&lt;strong&gt;Gravitino</summary>
+        
+      
+    
+    
+    
+    <category term="大数据组件" scheme="http://abyss-lord.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%84%E4%BB%B6/"/>
+    
+    
+    <category term="Gravitino" scheme="http://abyss-lord.github.io/tags/Gravitino/"/>
+    
+    <category term="元数据" scheme="http://abyss-lord.github.io/tags/%E5%85%83%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="统一元数据" scheme="http://abyss-lord.github.io/tags/%E7%BB%9F%E4%B8%80%E5%85%83%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="AI Infra" scheme="http://abyss-lord.github.io/tags/AI-Infra/"/>
+    
+  </entry>
   
   <entry>
     <title>RESTful 架构</title>
@@ -80,7 +112,7 @@
     <link href="http://abyss-lord.github.io/2025/03/20/diarly/2025-03-20-diary/"/>
     <id>http://abyss-lord.github.io/2025/03/20/diarly/2025-03-20-diary/</id>
     <published>2025-03-20T02:25:09.000Z</published>
-    <updated>2025-03-24T04:47:32.219Z</updated>
+    <updated>2025-06-19T08:37:36.792Z</updated>
     
     
       
