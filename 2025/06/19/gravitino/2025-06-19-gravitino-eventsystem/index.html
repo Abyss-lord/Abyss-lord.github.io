@@ -542,7 +542,7 @@ gravitino.eventListener.<span class="token punctuation">{</span>name<span class=
   <span class="token constant">METALAKE</span><span class="token punctuation">,</span> <span class="token constant">CATALOG</span><span class="token punctuation">,</span> <span class="token constant">RELATION</span><span class="token punctuation">,</span> <span class="token constant">FILESET</span><span class="token punctuation">,</span> <span class="token constant">ICEBERG_REST</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="实现视角"><a class="markdownIt-Anchor" href="#实现视角"></a> 实现视角</h3>
-<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130828.png" alt="image.png"></p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130828.png" alt="Implement"></p>
 <h4 id="核心组件"><a class="markdownIt-Anchor" href="#核心组件"></a> 核心组件</h4>
 <ul>
 <li><strong>EventListenerManager</strong>：负责加载所有事件监听插件，并根据不同操作类型创建对应的&nbsp;<code>EventBus</code>。</li>
@@ -603,7 +603,7 @@ gravitino.eventListener.<span class="token punctuation">{</span>name<span class=
 <p>是否支持类加载隔离</p>
 <p><strong>支持更好</strong>，否则所有插件只能放在 Gravitino 的 classpath 中，可能冲突。</p>
 <h3 id="dispatcher-视角"><a class="markdownIt-Anchor" href="#dispatcher-视角"></a> Dispatcher 视角</h3>
-<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130843.png" alt="image.png"></p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130843.png" alt="Dispatcher"></p>
 <p>Gravitino 的 Catalog 实现采用了经典的<strong>装饰器模式（Decorator Pattern）</strong>。在该模式下，所有组件均实现相同的接口（或继承统一的抽象类），通过<strong>包装已有对象</strong>的方式，在不修改其原有逻辑的前提下，增强其功能。</p>
 <p>以&nbsp;<code>ModelEventDispatcher</code>&nbsp;为例，它并不直接处理具体的 Catalog 操作，而是<strong>包装一个实际的 Dispatcher 实例</strong>。核心职责如下：</p>
 <ul>
@@ -637,7 +637,7 @@ gravitino.eventListener.<span class="token punctuation">{</span>name<span class=
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2>
-<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130927.png" alt="image.png"></p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130927.png" alt="EventBus"></p>
 <h2 id="监听器"><a class="markdownIt-Anchor" href="#监听器"></a> 监听器</h2>
 <p>监听器的接口是 <code>EventListenerPlugin</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@DeveloperApi</span>
@@ -904,7 +904,7 @@ gravitino.eventListener.<span class="token punctuation">{</span>name<span class=
 <li>强封装：通过限制对访问者方法的直接访问，防止外部误用；</li>
 <li>扩展性：添加新的事件类型只需要创建新的类和 <code>visitXXX ()</code> 方法，而无需修改分发逻辑；</li>
 </ul>
-<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130950.png" alt="image.png"></p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530130950.png" alt="EventDispatcher类图"></p>
 <p>为了限制外部对访问者方法的直接访问，因此使用一个内部静态类来实现 <code>EventDispatcher</code> 接口，具体代码如下：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">class</span> <span class="token class-name">InternalVisitor</span> <span class="token keyword">implements</span> <span class="token class-name">EventDispatcher</span> <span class="token punctuation">{</span>
     <span class="token comment">/** {@inheritDoc} */</span>
