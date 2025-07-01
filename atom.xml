@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-07-01T02:44:35.918Z</updated>
+  <updated>2025-07-01T03:07:15.402Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2025-07-01-Gravitino-cache-system</title>
+    <link href="http://abyss-lord.github.io/2025/07/01/gravitino/2025-07-01-gravitino-cache-system/"/>
+    <id>http://abyss-lord.github.io/2025/07/01/gravitino/2025-07-01-gravitino-cache-system/</id>
+    <published>2025-07-01T02:52:43.000Z</published>
+    <updated>2025-07-01T03:07:15.402Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#背景&quot;&gt;&lt;/a&gt; 背景&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;加载或创建表、模型、Fileset</summary>
+        
+      
+    
+    
+    
+    <category term="大数据组件" scheme="http://abyss-lord.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%84%E4%BB%B6/"/>
+    
+    
+    <category term="Gravitino" scheme="http://abyss-lord.github.io/tags/Gravitino/"/>
+    
+    <category term="big-data" scheme="http://abyss-lord.github.io/tags/big-data/"/>
+    
+    <category term="metadata" scheme="http://abyss-lord.github.io/tags/metadata/"/>
+    
+    <category term="open-source" scheme="http://abyss-lord.github.io/tags/open-source/"/>
+    
+    <category term="cache" scheme="http://abyss-lord.github.io/tags/cache/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2025-07-01  小记</title>
     <link href="http://abyss-lord.github.io/2025/07/01/diarly/2025-07-01-diary/"/>
     <id>http://abyss-lord.github.io/2025/07/01/diarly/2025-07-01-diary/</id>
     <published>2025-07-01T02:14:00.000Z</published>
-    <updated>2025-07-01T02:44:35.918Z</updated>
+    <updated>2025-07-01T02:45:59.507Z</updated>
     
     
       
