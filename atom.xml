@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-07-02T09:34:08.984Z</updated>
+  <updated>2025-07-02T10:14:25.942Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2025-07-02-jmh</title>
+    <link href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/"/>
+    <id>http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/</id>
+    <published>2025-07-02T10:12:01.000Z</published>
+    <updated>2025-07-02T10:14:25.942Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概览&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#概览&quot;&gt;&lt;/a&gt; 概览&lt;/h2&gt;
+&lt;p&gt;Gravitino JMH 目录包含一套基于&amp;nbsp;JMH&amp;nbsp;的微基准测试（Microbenchmark）套件，专门用于评估</summary>
+        
+      
+    
+    
+    
+    <category term="测试" scheme="http://abyss-lord.github.io/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+    <category term="Gravitino" scheme="http://abyss-lord.github.io/tags/Gravitino/"/>
+    
+    <category term="gradle-plugin" scheme="http://abyss-lord.github.io/tags/gradle-plugin/"/>
+    
+    <category term="JMH" scheme="http://abyss-lord.github.io/tags/JMH/"/>
+    
+    <category term="performance-testing" scheme="http://abyss-lord.github.io/tags/performance-testing/"/>
+    
+  </entry>
   
   <entry>
     <title>Gravitino 并发测试指南</title>

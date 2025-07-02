@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Gravitino 并发测试指南, 大数据, Hive, Unified Metadata">
+    <meta name="keywords" content="2025-07-02-jmh, 大数据, Hive, Unified Metadata">
     <meta name="description" content="分享一下前进道路上的点点滴滴">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Gravitino 并发测试指南 | Plord的个人空间</title>
+    <title>2025-07-02-jmh | Plord的个人空间</title>
     <link rel="icon" type="image/png" href="/medias/obsidian.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -296,7 +296,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Gravitino 并发测试指南</h1>
+                    <h1 class="description center-align post-title">2025-07-02-jmh</h1>
                 </div>
             </div>
         </div>
@@ -423,20 +423,16 @@
                                 <span class="chip bg-color">Gravitino</span>
                             </a>
                         
-                            <a href="/tags/JCStress/">
-                                <span class="chip bg-color">JCStress</span>
-                            </a>
-                        
                             <a href="/tags/gradle-plugin/">
                                 <span class="chip bg-color">gradle-plugin</span>
                             </a>
                         
-                            <a href="/tags/concurrency-testing/">
-                                <span class="chip bg-color">concurrency-testing</span>
+                            <a href="/tags/JMH/">
+                                <span class="chip bg-color">JMH</span>
                             </a>
                         
-                            <a href="/tags/thread-safety/">
-                                <span class="chip bg-color">thread-safety</span>
+                            <a href="/tags/performance-testing/">
+                                <span class="chip bg-color">performance-testing</span>
                             </a>
                         
                     </div>
@@ -474,7 +470,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.1k
                 </div>
                 
 
@@ -499,297 +495,209 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
-<p>在 Gravitino 中，我们使用&nbsp;<a target="_blank" rel="noopener" href="https://github.com/openjdk/jcstress">JCStress</a>&nbsp;框架进行并发压力测试，以识别线程安全相关的微妙缺陷。这类问题往往难以通过传统的单元测试捕捉，例如：</p>
+                <h2 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h2>
+<p>Gravitino JMH 目录包含一套基于&nbsp;JMH&nbsp;的微基准测试（Microbenchmark）套件，专门用于评估 Gravitino 中核心子系统的性能特征，如：实体缓存（Entity Cache）、元数据解析逻辑以及并发控制机制等。</p>
+<h2 id="执行方式"><a class="markdownIt-Anchor" href="#执行方式"></a> 执行方式</h2>
+<p>使用如下命令运行 JMH 测试：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./gradlew :core:jmh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>测试完成后，结果将保存于：<code>build/reports/jmh</code>&nbsp;目录中。</p>
+<h2 id="示例报告格式"><a class="markdownIt-Anchor" href="#示例报告格式"></a> 示例报告格式</h2>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Benchmark                                         <span class="token punctuation">(</span>totalCnt<span class="token punctuation">)</span>  Mode  Cnt        Score        Error  Units
+EntityCacheGetBenchmark.benchmarkGet                     <span class="token number">100</span>  thrpt   <span class="token number">10</span>  <span class="token number">17906401.139</span> ±  <span class="token number">905521.957</span>  ops/s
+EntityCachePutBenchmark.benchmarkPut                   <span class="token number">1000</span>  avgt    <span class="token number">10</span>       <span class="token number">0.002</span> ±     <span class="token number">0.001</span>   s/op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>数据竞争（Race Condition）</li>
-<li>内存可见性问题（Visibility Violation）</li>
-<li>原子性缺失（Atomicity Violation）</li>
+<li><strong>Score</strong>：每秒操作数或每次调用耗时；</li>
+<li><strong>Error</strong>：误差范围（通常为 99.9% 置信区间），即结果可信区间为 Score ± Error；</li>
 </ul>
-<p>JCStress 能有效帮助我们验证并发代码的正确性，确保缓存、元数据等核心组件具备良好的线程安全保障。</p>
-<h2 id="什么是-jcstress"><a class="markdownIt-Anchor" href="#什么是-jcstress"></a> 什么是 JCStress？</h2>
-<p><a target="_blank" rel="noopener" href="https://github.com/openjdk/jcstress">JCStress</a>&nbsp;是 Oracle 官方提供的 Java 并发测试工具，专为检测并发场景下的非确定性错误而设计。其主要特性包括：</p>
+<p>例如：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Score: <span class="token number">19008727.28</span> ops/s
+Error: ± <span class="token number">1172892.70</span> ops/s
+<span class="token operator">=</span><span class="token operator">&gt;</span> 实际性能大概率处于 <span class="token number">17,835</span>,834 ~ <span class="token number">20,181</span>,620 ops/s 之间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>误差越小，说明测试结果越稳定可靠。</p>
+<h2 id="什么是-jmh"><a class="markdownIt-Anchor" href="#什么是-jmh"></a> 什么是 JMH？</h2>
+<p>JMH（Java Microbenchmark Harness）是 OpenJDK 团队专为 Java 微基准测试开发的框架，主要用于精确测量方法调用、缓存访问、对象分配等细粒度操作的性能。</p>
+<p>相较于传统测试方式，JMH 能处理如下影响因素：</p>
 <ul>
-<li>在多个线程间并发执行操作，模拟实际竞争环境；</li>
-<li>使用大量线程交错（Interleaving）组合反复运行；</li>
-<li>揭示极低概率但高危的并发缺陷；</li>
-<li>将测试结果分为三类：<strong>可接受（ACCEPTABLE）</strong>、<strong>禁止（FORBIDDEN）</strong>、<strong>值得关注（INTERESTING）</strong>。</li>
+<li>JIT 编译和 JVM 热身（warm-up）</li>
+<li>死代码消除（Dead Code Elimination）</li>
+<li>逃逸分析（Escape Analysis）</li>
+<li>线程争用和伪共享（False Sharing）</li>
 </ul>
-<h2 id="如何运行测试"><a class="markdownIt-Anchor" href="#如何运行测试"></a> 如何运行测试</h2>
-<p>在 Gravitino 中使用&nbsp;<a target="_blank" rel="noopener" href="https://github.com/reyerizo/jcstress-gradle-plugin"><code>jcstress-gradle-plugin</code></a>&nbsp;将 JCStress 集成到 Gradle build 系统中。</p>
-<p>该插件的优势如下：</p>
-<ul>
-<li>自动生成测试运行器（test harness）；</li>
-<li>提供内置 Gradle 任务（如&nbsp;<code>:core:jcstress</code>）；</li>
-<li>自动生成报告，在&nbsp;<code>build/reports/jcstress/</code>&nbsp;下生成详细的 HTML 报告。</li>
-</ul>
-<h3 id="运行测试的命令"><a class="markdownIt-Anchor" href="#运行测试的命令"></a> 运行测试的命令</h3>
-<p>运行所有 JCStress 测试：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./gradlew :core:jcstress<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>仅运行指定测试类（正则匹配）：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gradle jcstress <span class="token parameter variable">--tests</span> <span class="token string">"MyFirstTest|MySecondTest"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>执行完毕后，可以在如下位置查看报告： <code>core/build/reports/jcstress/index.html</code></p>
-<blockquote>
-<p>测试运行时间取决于测试复杂度与系统 CPU 资源，通常为数分钟至数十分钟不等。</p>
-</blockquote>
-<h2 id="解读测试结果"><a class="markdownIt-Anchor" href="#解读测试结果"></a> 解读测试结果</h2>
-<p>JCStress 的测试结果以表格形式展示，包括：</p>
-<ul>
-<li>每种观察结果的内容与出现频率；</li>
-<li>每个结果的期望分类（ACCEPTABLE/FORBIDDEN/INTERESTING）；</li>
-<li>总迭代次数与执行时长。</li>
-</ul>
-<p>如果测试出现&nbsp;<strong>FAILED</strong>，说明检测到被定义为&nbsp;<strong>FORBIDDEN</strong>&nbsp;的结果，表示存在潜在并发问题。</p>
-<h2 id="配置方式"><a class="markdownIt-Anchor" href="#配置方式"></a> 配置方式</h2>
-<p>通过在&nbsp;<code>build.gradle</code>&nbsp;中添加如下配置，可调整测试策略：</p>
-<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">jcstress <span class="token punctuation">{</span>
-    verbose <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"true"</span></span>
-    timeMillis <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"200"</span></span>
-    spinStyle <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"THREAD_YIELD"</span></span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>常用配置项说明：</p>
+<p>JMH 提供基于注解的 API，并自动处理多次迭代、预热、JVM fork 和统计报告，已被广泛应用于 JDK、Spring、Netty、Lucene 等高性能项目。</p>
+<h3 id="示例基准代码"><a class="markdownIt-Anchor" href="#示例基准代码"></a> 示例基准代码</h3>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@BenchmarkMode</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">Mode<span class="token punctuation">.</span>Throughput</span><span class="token punctuation">,</span> <span class="token class-name">Mode<span class="token punctuation">.</span>AverageTime</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@OutputTimeUnit</span><span class="token punctuation">(</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">SECONDS</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@State</span><span class="token punctuation">(</span><span class="token class-name">Scope<span class="token punctuation">.</span>Thread</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StringConnectTest</span> <span class="token punctuation">{</span>
+
+  <span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">private</span> <span class="token keyword">int</span> length<span class="token punctuation">;</span>
+
+  <span class="token annotation punctuation">@Benchmark</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testStringAdd</span><span class="token punctuation">(</span><span class="token class-name">Blackhole</span> blackhole<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      a <span class="token operator">+=</span> i<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    blackhole<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation punctuation">@Benchmark</span>
+  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testStringBuilderAdd</span><span class="token punctuation">(</span><span class="token class-name">Blackhole</span> blackhole<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    blackhole<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="常用注解说明"><a class="markdownIt-Anchor" href="#常用注解说明"></a> 常用注解说明</h4>
 <table>
 <thead>
 <tr>
-<th>配置项</th>
+<th>注解</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>mode</code></td>
-<td>执行模式：<code>sanity</code>、<code>quick</code>、<code>default</code>、<code>tough</code>、<code>stress</code>。</td>
+<td><code>@Benchmark</code></td>
+<td>声明基准方法，JMH 会多次调用并测量其性能</td>
 </tr>
 <tr>
-<td><code>cpuCount</code></td>
-<td>使用的 CPU 核心数，默认使用全部。</td>
+<td><code>@BenchmarkMode</code></td>
+<td>设置测量模式，如吞吐量（Throughput）、平均时间（AverageTime）</td>
 </tr>
 <tr>
-<td><code>forks</code></td>
-<td>每个测试被 fork 的次数。</td>
+<td><code>@OutputTimeUnit</code></td>
+<td>设置时间单位，如秒（SECONDS）、毫秒、纳秒等</td>
 </tr>
 <tr>
-<td><code>iterations</code></td>
-<td>每个测试的迭代次数。</td>
+<td><code>@State</code></td>
+<td>设置对象共享粒度，常用为&nbsp;<code>Scope.Thread</code>（每线程独立）</td>
 </tr>
 <tr>
-<td><code>heapPerFork</code></td>
-<td>每次 fork 的最大内存（MB）。</td>
-</tr>
-<tr>
-<td><code>spinStyle</code></td>
-<td>等待策略：如&nbsp;<code>THREAD_YIELD</code>、<code>HARD</code>&nbsp;等。</td>
-</tr>
-<tr>
-<td><code>affinityMode</code></td>
-<td>线程与 CPU 的绑定模式：<code>NONE</code>、<code>GLOBAL</code>、<code>LOCAL</code>。</td>
-</tr>
-<tr>
-<td><code>jvmArgs/jvmArgsPrepend</code></td>
-<td>设置 JVM 启动参数。</td>
-</tr>
-<tr>
-<td><code>reportDir</code></td>
-<td>报告输出目录。</td>
+<td><code>@Param</code></td>
+<td>参数化测试，生成多组输入用例</td>
 </tr>
 </tbody>
 </table>
-<h2 id="如何编写-jcstress-测试"><a class="markdownIt-Anchor" href="#如何编写-jcstress-测试"></a> 如何编写 JCStress 测试</h2>
-<p>JCStress 提供两种测试风格，适用于不同的并发验证场景。</p>
-<h3 id="风格一基于-arbiter-的测试"><a class="markdownIt-Anchor" href="#风格一基于-arbiter-的测试"></a> 风格一：基于 Arbiter 的测试</h3>
-<p>特点是通过独立的&nbsp;<code>@Arbiter</code>&nbsp;方法观察最终状态：</p>
-<ol>
-<li>定义共享变量；</li>
-<li>用&nbsp;<code>@Actor</code>&nbsp;注解要并发执行的方法；</li>
-<li>用&nbsp;<code>@Arbiter</code>&nbsp;注解标注最终的观察方法；</li>
-<li>使用&nbsp;<code>@JCStressTest</code>&nbsp;+&nbsp;<code>@Outcome</code>&nbsp;标注预期结果。</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@JCStressTest</span>
-<span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">ACCEPTABLE</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"正常结果"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"0"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">FORBIDDEN</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"出现竞态"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@State</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ArbiterTest</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">void</span> <span class="token function">actor1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">void</span> <span class="token function">actor2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Arbiter</span>
-    <span class="token keyword">void</span> <span class="token function">arbiter</span><span class="token punctuation">(</span><span class="token class-name">I_Result</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        r<span class="token punctuation">.</span>r1 <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="风格二直接结果记录direct-result-reporting"><a class="markdownIt-Anchor" href="#风格二直接结果记录direct-result-reporting"></a> 风格二：直接结果记录（Direct Result Reporting）</h3>
-<p>特点是 <code>actor</code> 方法直接记录测试结果并写入结果对象</p>
-<ol>
-<li>定义共享变量；</li>
-<li><code>@Actor</code>&nbsp;方法接收结果参数，如&nbsp;<code>II_Result</code>；</li>
-<li>记录观察到的值；</li>
-<li>使用&nbsp;<code>@Outcome</code>&nbsp;定义期望结果。</li>
-</ol>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@JCStressTest</span>
-<span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"0, 1"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">ACCEPTABLE</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"线程 2 看到了写入"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"0, 0"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">ACCEPTABLE</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"线程 2 没看到写入"</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@State</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DirectReportingTest</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">void</span> <span class="token function">actor1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">void</span> <span class="token function">actor2</span><span class="token punctuation">(</span><span class="token class-name">II_Result</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        r<span class="token punctuation">.</span>r1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        r<span class="token punctuation">.</span>r2 <span class="token operator">=</span> x<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>可用&nbsp;<code>@Description</code>&nbsp;添加简要说明，需要避免过长字符串，否则可能会触发&nbsp;<code>StringIndexOutOfBoundsException</code>。</p>
-</blockquote>
-<h3 id="风格选择"><a class="markdownIt-Anchor" href="#风格选择"></a> 风格选择</h3>
-<table>
-<thead>
-<tr>
-<th>场景</th>
-<th>推荐风格</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>需要统一观察最终状态</td>
-<td>Arbiter 风格</td>
-</tr>
-<tr>
-<td>Actor 可即时记录观察结果</td>
-<td>直接记录风格</td>
-</tr>
-<tr>
-<td>关注可见性或重排序问题</td>
-<td>直接记录风格</td>
-</tr>
-</tbody>
-</table>
-<h2 id="线程安全测试示例"><a class="markdownIt-Anchor" href="#线程安全测试示例"></a> 线程安全测试示例</h2>
-<p>示例测试说明：</p>
-<ul>
-<li>两个&nbsp;<code>@Actor</code>&nbsp;并发往缓存中放入两个不同 key（schema 和 table）；</li>
-<li><code>@Arbiter</code>&nbsp;验证缓存中是否存在这两个实体；</li>
-<li>定义了三种结果：
-<ul>
-<li><strong>2</strong>：两个都存在</li>
-<li><strong>1</strong>：只存在一个</li>
-<li><strong>0</strong>：都不存在</li>
-</ul>
-</li>
-</ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> xxx <span class="token punctuation">{</span>
-  <span class="token comment">// some entity to test.</span>
-  
-  <span class="token annotation punctuation">@JCStressTest</span>
-  <span class="token annotation punctuation">@Outcome.Outcomes</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"2"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">ACCEPTABLE</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"Both put() calls succeeded; both entries are visible in the cache."</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      <span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"1"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">FORBIDDEN</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"Only one entry is visible; potential visibility or atomicity issue."</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      <span class="token annotation punctuation">@Outcome</span><span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"0"</span><span class="token punctuation">,</span> expect <span class="token operator">=</span> <span class="token class-name">Expect</span><span class="token punctuation">.</span><span class="token constant">FORBIDDEN</span><span class="token punctuation">,</span> desc <span class="token operator">=</span> <span class="token string">"Neither entry is visible; indicates a serious failure in write propagation or cache logic."</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token annotation punctuation">@Description</span><span class="token punctuation">(</span><span class="token string">"Concurrent put() on different keys. Both schema and table should be visible (result = 2). "</span> <span class="token operator">+</span> <span class="token string">"Lower results may indicate visibility or concurrency issues."</span><span class="token punctuation">)</span>
-  <span class="token annotation punctuation">@State</span>
-
-  <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">ConcurrentPutDifferentKeysTest</span> <span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">EntityCache</span> cache<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> <span class="token class-name">ConcurrentPutDifferentKeysTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span>cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CaffeineEntityCache</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Config</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actor1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>schemaEntity<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Actor</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">actor2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>tableEntity<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token annotation punctuation">@Arbiter</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">arbiter</span><span class="token punctuation">(</span><span class="token class-name">I_Result</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>cache<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>schemaEntity<span class="token punctuation">.</span><span class="token function">nameIdentifier</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> schemaEntity<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> count<span class="token operator">++</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>cache<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span>tableEntity<span class="token punctuation">.</span><span class="token function">nameIdentifier</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tableEntity<span class="token punctuation">.</span><span class="token function">type</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> count<span class="token operator">++</span><span class="token punctuation">;</span>
-
-      r<span class="token punctuation">.</span>r1 <span class="token operator">=</span> count<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  
-  <span class="token comment">// ... other test classes</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="jcstress-测试生命周期"><a class="markdownIt-Anchor" href="#jcstress-测试生命周期"></a> JCStress 测试生命周期</h2>
-<p>JCStress 遵循以下测试执行流程：</p>
-<ol>
-<li><strong>状态初始化</strong>：每次测试迭代前重新构造&nbsp;<code>@State</code>&nbsp;对象，确保隔离性；</li>
-<li><strong>并发执行</strong>：多个&nbsp;<code>@Actor</code>&nbsp;方法并发运行，模拟真实竞争；</li>
-<li><strong>内存屏障插入</strong>：确保执行顺序后再执行&nbsp;<code>@Arbiter</code>；</li>
-<li><strong>结果判定</strong>：将每次迭代的结果与定义的&nbsp;<code>@Outcome</code>&nbsp;比较归类；</li>
-<li><strong>高频迭代</strong>：每个测试重复运行百万次以上，以暴露极低概率的错误。</li>
-</ol>
-<h3 id="可用执行模式"><a class="markdownIt-Anchor" href="#可用执行模式"></a> 可用执行模式</h3>
+<h4 id="benchmarkmode-模式说明"><a class="markdownIt-Anchor" href="#benchmarkmode-模式说明"></a> BenchmarkMode 模式说明</h4>
 <table>
 <thead>
 <tr>
 <th>模式</th>
-<th>描述</th>
+<th>含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>sanity</code></td>
-<td>快速检查测试是否配置正确（几秒）</td>
+<td><code>Throughput</code></td>
+<td>吞吐量，每秒完成操作数</td>
 </tr>
 <tr>
-<td><code>quick</code></td>
-<td>快速反馈，适合开发中使用（几十秒）</td>
+<td><code>AverageTime</code></td>
+<td>每次操作的平均耗时</td>
 </tr>
 <tr>
-<td><code>default</code></td>
-<td>平衡模式，推荐常规使用（几分钟）</td>
+<td><code>SampleTime</code></td>
+<td>对多个样本测量操作耗时，展示分布</td>
 </tr>
 <tr>
-<td><code>tough</code></td>
-<td>强力模式，适合 CI 测试或发布前验证（较长时间）</td>
+<td><code>SingleShotTime</code></td>
+<td>单次调用耗时，适合冷启动分析</td>
+</tr>
+<tr>
+<td><code>All</code></td>
+<td>执行所有模式</td>
 </tr>
 </tbody>
 </table>
-<h2 id="问题类型"><a class="markdownIt-Anchor" href="#问题类型"></a> 问题类型</h2>
-<p>JCStress 主要帮助检测如下并发问题：</p>
+<h2 id="在-gravitino-中使用-jmh"><a class="markdownIt-Anchor" href="#在-gravitino-中使用-jmh"></a> 在 Gravitino 中使用 JMH</h2>
+<p>Gravitino 使用&nbsp;<a target="_blank" rel="noopener" href="https://github.com/melix/jmh-gradle-plugin">jmh-gradle-plugin</a>&nbsp;集成 JMH 到 Gradle 构建中。</p>
+<h3 id="插件配置"><a class="markdownIt-Anchor" href="#插件配置"></a> 插件配置</h3>
+<p>在&nbsp;<code>build.gradle</code>&nbsp;中添加：</p>
+<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">plugins <span class="token punctuation">{</span>
+  id <span class="token interpolation-string"><span class="token string">"me.champeau.jmh"</span></span> version <span class="token interpolation-string"><span class="token string">"0.7.3"</span></span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>注意：0.6.0 之前版本的插件 ID 为&nbsp;<code>me.champeau.gradle.jmh</code></p>
+</blockquote>
+<h3 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构"></a> 目录结构</h3>
+<p>基准测试文件需放置于以下目录：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">src/jmh/java       <span class="token comment"># Java 测试代码</span>
+src/jmh/resources  <span class="token comment"># 资源文件（可选）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="依赖引入"><a class="markdownIt-Anchor" href="#依赖引入"></a> 依赖引入</h3>
+<p>若基准测试依赖第三方库，如 commons-io，可在&nbsp;<code>dependencies</code>&nbsp;中添加：</p>
+<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
+  jmh <span class="token string">'commons-io:commons-io:2.7'</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>要指定 JMH 版本：</p>
+<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
+  jmh <span class="token string">'org.openjdk.jmh:jmh-core:1.37'</span>
+  jmh <span class="token string">'org.openjdk.jmh:jmh-generator-annprocess:1.37'</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="jmh-测试任务"><a class="markdownIt-Anchor" href="#jmh-测试任务"></a> JMH 测试任务</h3>
+<table>
+<thead>
+<tr>
+<th>任务名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>jmhClasses</code></td>
+<td>编译测试源代码</td>
+</tr>
+<tr>
+<td><code>jmhRunBytecodeGenerator</code></td>
+<td>运行字节码生成器</td>
+</tr>
+<tr>
+<td><code>jmhCompileGeneratedClasses</code></td>
+<td>编译生成代码</td>
+</tr>
+<tr>
+<td><code>jmhJar</code></td>
+<td>打包成可运行 JMH jar</td>
+</tr>
+<tr>
+<td><code>jmh</code></td>
+<td>执行所有基准测试（主任务）</td>
+</tr>
+</tbody>
+</table>
+<p>执行命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./gradlew :core:jmh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="常用配置项"><a class="markdownIt-Anchor" href="#常用配置项"></a> 常用配置项</h3>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmh <span class="token punctuation">{</span>
+  includes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'.*Benchmark'</span><span class="token punctuation">]</span>     // 正则匹配要执行的测试类
+  iterations <span class="token operator">=</span> <span class="token number">10</span>                // 测量阶段迭代次数
+  warmupIterations <span class="token operator">=</span> <span class="token number">5</span>           // 预热阶段迭代次数
+  fork <span class="token operator">=</span> <span class="token number">1</span>                       // JVM 启动次数（独立运行）
+  threads <span class="token operator">=</span> <span class="token number">4</span>                    // 工作线程数
+  resultFormat <span class="token operator">=</span> <span class="token string">'CSV'</span>          // 报告格式（CSV、JSON、TEXT等）
+  resultsFile <span class="token operator">=</span> file<span class="token punctuation">(</span><span class="token string">"<span class="token variable">$buildDir</span>/reports/jmh/results.csv"</span><span class="token punctuation">)</span>
+  includeTests <span class="token operator">=</span> <span class="token boolean">true</span>            // 是否包含 <span class="token builtin class-name">test</span> 目录中的类
+  duplicateClassesStrategy <span class="token operator">=</span> DuplicatesStrategy.FAIL
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>更多映射与命令行选项见：<a target="_blank" rel="noopener" href="https://github.com/melix/jmh-gradle-plugin#configuration-options">配置选项映射表</a></p>
+<h2 id="jmh-补充说明"><a class="markdownIt-Anchor" href="#jmh-补充说明"></a> JMH 补充说明</h2>
+<h3 id="为什么需要-warm-up预热"><a class="markdownIt-Anchor" href="#为什么需要-warm-up预热"></a> 为什么需要 Warm-up（预热）？</h3>
+<p>由于 JVM 存在 JIT 编译机制，频繁调用的方法可能会被编译为本地代码。预热阶段可确保测试结果更贴近生产环境下的真实性能。</p>
+<h3 id="可视化工具"><a class="markdownIt-Anchor" href="#可视化工具"></a> 可视化工具</h3>
 <ul>
-<li><strong>竞态条件（Race Condition）</strong>：多个线程无同步访问共享变量；</li>
-<li><strong>可见性问题</strong>：线程修改对其他线程不可见；</li>
-<li><strong>原子性破坏</strong>：非原子操作被部分执行；</li>
-<li><strong>执行顺序错误</strong>：由于 CPU/JVM 重排序导致的行为异常。</li>
+<li><a target="_blank" rel="noopener" href="http://deepoove.com/jmh-visual-chart/">JMH Visual Chart</a></li>
+<li><a target="_blank" rel="noopener" href="https://jmh.morethan.io/">JMH Visualizer</a></li>
 </ul>
-<h2 id="jcstress-编写建议"><a class="markdownIt-Anchor" href="#jcstress-编写建议"></a> Jcstress 编写建议</h2>
+<p>支持导入 JSON/CSV 报告生成图表。</p>
+<h3 id="intellij-插件支持"><a class="markdownIt-Anchor" href="#intellij-插件支持"></a> IntelliJ 插件支持</h3>
+<p>安装 JMH 插件后，可像运行 JUnit 一样运行基准测试：</p>
 <ul>
-<li>每个测试聚焦一个并发问题；</li>
-<li>使用清晰的类名与注释解释每个结果；</li>
-<li>避免使用非确定性行为（如&nbsp;<code>Thread.sleep()</code>）；</li>
-<li>多次运行测试以验证稳定性；</li>
-<li>对&nbsp;<strong>FORBIDDEN</strong>&nbsp;或&nbsp;<strong>INTERESTING</strong>&nbsp;的结果重点关注和修复。</li>
-</ul>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://wiki.openjdk.java.net/display/CodeTools/jcstress">JCStress Official Documentation</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-17.html#jls-17.4">Java Memory Model Specification</a></li>
-<li><a target="_blank" rel="noopener" href="http://gee.cs.oswego.edu/dl/jmm/cookbook.html">Doug Lea’s JSR-133 Cookbook</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/reyerizo/jcstress-gradle-plugin">jcstress-gradle-plugin</a></li>
+<li>自动生成带&nbsp;<code>@Benchmark</code>&nbsp;的方法模板</li>
+<li>单独运行方法或类中的所有测试</li>
+<li>插件路径：<code>File → Settings → Plugins → 搜索 JMH</code></li>
 </ul>
 
                 
@@ -817,7 +725,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jcstress/">http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jcstress/</a>
+                    <a href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/">http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -859,20 +767,16 @@
                                     <span class="chip bg-color">Gravitino</span>
                                 </a>
                             
-                                <a href="/tags/JCStress/">
-                                    <span class="chip bg-color">JCStress</span>
-                                </a>
-                            
                                 <a href="/tags/gradle-plugin/">
                                     <span class="chip bg-color">gradle-plugin</span>
                                 </a>
                             
-                                <a href="/tags/concurrency-testing/">
-                                    <span class="chip bg-color">concurrency-testing</span>
+                                <a href="/tags/JMH/">
+                                    <span class="chip bg-color">JMH</span>
                                 </a>
                             
-                                <a href="/tags/thread-safety/">
-                                    <span class="chip bg-color">thread-safety</span>
+                                <a href="/tags/performance-testing/">
+                                    <span class="chip bg-color">performance-testing</span>
                                 </a>
                             
                         </div>
@@ -1305,9 +1209,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/07/02/gravitino/2025-07-02-jmh/">
                     <div class="card-image">
@@ -1324,9 +1229,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1339,6 +1244,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1369,30 +1275,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/07/01/gravitino/2025-07-01-gravitino-cache-system/">
+                <a href="/2025/07/02/gravitino/2025-07-02-jcstress/">
                     <div class="card-image">
                         
-                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E5%9F%8E%E5%B8%82%E8%89%BA%E6%9C%AF%E5%9B%BE%201.jpg" class="responsive-img" alt="2025-07-01-Gravitino-cache-system">
+                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E5%9F%8E%E5%B8%82%E8%89%BA%E6%9C%AF%E5%9B%BE%201.jpg" class="responsive-img" alt="Gravitino 并发测试指南">
                         
-                        <span class="card-title">2025-07-01-Gravitino-cache-system</span>
+                        <span class="card-title">Gravitino 并发测试指南</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主要介绍 Gravitino Cache System 的设计与实现
+                            主要介绍如何在 Gravitino 中使用 jcstress 进行一致性测试
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%84%E4%BB%B6/" class="post-category">
-                                    大数据组件
+                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    测试
                                 </a>
                             
                             
@@ -1406,20 +1312,20 @@
                         <span class="chip bg-color">Gravitino</span>
                     </a>
                     
-                    <a href="/tags/big-data/">
-                        <span class="chip bg-color">big-data</span>
+                    <a href="/tags/JCStress/">
+                        <span class="chip bg-color">JCStress</span>
                     </a>
                     
-                    <a href="/tags/metadata/">
-                        <span class="chip bg-color">metadata</span>
+                    <a href="/tags/gradle-plugin/">
+                        <span class="chip bg-color">gradle-plugin</span>
                     </a>
                     
-                    <a href="/tags/open-source/">
-                        <span class="chip bg-color">open-source</span>
+                    <a href="/tags/concurrency-testing/">
+                        <span class="chip bg-color">concurrency-testing</span>
                     </a>
                     
-                    <a href="/tags/cache/">
-                        <span class="chip bg-color">cache</span>
+                    <a href="/tags/thread-safety/">
+                        <span class="chip bg-color">thread-safety</span>
                     </a>
                     
                 </div>
