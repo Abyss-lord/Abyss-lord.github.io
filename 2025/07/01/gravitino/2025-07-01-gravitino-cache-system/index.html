@@ -467,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-01
+                    2025-07-02
                 </div>
                 
 
@@ -521,11 +521,11 @@
 <li>合并 <code>SupportsTagOperations</code> 到 <code>SupportsRelationOperations</code>；</li>
 </ol>
 <p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/20250530153818.png" alt="Gravitino 代码层次"></p>
-<p><code>EntityCache</code>&nbsp;是 Store 层的缓存模块，采用插件化设计，既可嵌入式部署（如 Caffeine），也可接入分布式缓存（如 Redis），主要用于加速元数据的读写操作。</p>
+<p><code>EntityCache</code>&nbsp;是 Store 层的缓存模块，采用插件化设计，可以支持本地内存缓存（如 Caffeine），也支持分布式缓存（如 Redis），主要用于加速元数据的读写操作。</p>
 <p>设计分为两部分：</p>
 <ul>
-<li><strong>Cache Data</strong>：用于存储&nbsp;<code>Entity</code>&nbsp;本体；</li>
-<li><strong>Cache Index</strong>：用于辅助前缀查询与自动清理。</li>
+<li><strong>Cache Data</strong>：用于存储&nbsp;<code>Entity</code>&nbsp;本身；</li>
+<li><strong>Cache Index</strong>：用于辅助前缀查询。</li>
 </ul>
 <p>缓存数据（Cache Data）</p>
 <ul>
@@ -536,8 +536,7 @@
 <p>缓存索引（Cache Index）</p>
 <ul>
 <li>支持基于名称前缀检索对应的 Entity 实体集合；</li>
-<li>Cache Data 提供&nbsp;<code>remove listener</code>&nbsp;钩子函数；</li>
-<li>支持按需启用或关闭过期策略，元素失效或手动移除时会自动调用该函数，保持 Cache Index 同步删除。</li>
+<li>支持多种缓存过期策略，当 CacheData 中的缓存项因为策略过期被删除时，通过 <code>remove listener</code> 保持 Cache Index 同步删除。</li>
 </ul>
 <h2 id="接口定义与实现"><a class="markdownIt-Anchor" href="#接口定义与实现"></a> 接口定义与实现</h2>
 <h3 id="entitycache"><a class="markdownIt-Anchor" href="#entitycache"></a> EntityCache</h3>
