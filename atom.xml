@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-07-02T10:14:25.942Z</updated>
+  <updated>2025-07-04T08:37:58.890Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2025-07-02-jmh</title>
+    <title>Gravitino committer</title>
+    <link href="http://abyss-lord.github.io/2025/07/04/2025-07-04-gravitino-committer/"/>
+    <id>http://abyss-lord.github.io/2025/07/04/2025-07-04-gravitino-committer/</id>
+    <published>2025-07-04T06:52:43.000Z</published>
+    <updated>2025-07-04T08:37:58.890Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#简介&quot;&gt;&lt;/a&gt; 简介&lt;/h2&gt;
+&lt;p&gt;Apache 软件基金会(以下简称 AFS)是世界上最大的开源软件基金会，截止目前官方的一些统计数据：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="开源" scheme="http://abyss-lord.github.io/categories/%E5%BC%80%E6%BA%90/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Gravitino 如何进行 JMH 测试</title>
     <link href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/"/>
     <id>http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/</id>
     <published>2025-07-02T10:12:01.000Z</published>
-    <updated>2025-07-02T10:14:25.942Z</updated>
+    <updated>2025-07-04T07:03:58.612Z</updated>
     
     
       
@@ -49,11 +74,11 @@
   </entry>
   
   <entry>
-    <title>Gravitino 并发测试指南</title>
+    <title>Gravitino 如何进行一致性测试</title>
     <link href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jcstress/"/>
     <id>http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jcstress/</id>
     <published>2025-07-02T09:31:01.000Z</published>
-    <updated>2025-07-02T09:34:08.984Z</updated>
+    <updated>2025-07-04T07:03:23.615Z</updated>
     
     
       
@@ -83,11 +108,11 @@
   </entry>
   
   <entry>
-    <title>2025-07-01-Gravitino-cache-system</title>
+    <title>Gravitino Cache System</title>
     <link href="http://abyss-lord.github.io/2025/07/01/gravitino/2025-07-01-gravitino-cache-system/"/>
     <id>http://abyss-lord.github.io/2025/07/01/gravitino/2025-07-01-gravitino-cache-system/</id>
     <published>2025-07-01T02:52:43.000Z</published>
-    <updated>2025-07-02T08:31:22.484Z</updated>
+    <updated>2025-07-04T07:02:55.923Z</updated>
     
     
       
@@ -150,11 +175,11 @@
   </entry>
   
   <entry>
-    <title>Gravitino事件系统设计</title>
+    <title>Gravitino Event System</title>
     <link href="http://abyss-lord.github.io/2025/06/19/gravitino/2025-06-19-gravitino-eventsystem/"/>
     <id>http://abyss-lord.github.io/2025/06/19/gravitino/2025-06-19-gravitino-eventsystem/</id>
     <published>2025-06-19T08:40:14.000Z</published>
-    <updated>2025-06-19T08:55:54.683Z</updated>
+    <updated>2025-07-04T07:03:07.686Z</updated>
     
     
       

@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="RESTful 架构, 大数据, Hive, Unified Metadata">
+    <meta name="keywords" content="Gravitino committer, 大数据, Hive, Unified Metadata">
     <meta name="description" content="分享一下前进道路上的点点滴滴">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RESTful 架构 | Plord的个人空间</title>
+    <title>Gravitino committer | Plord的个人空间</title>
     <link rel="icon" type="image/png" href="/medias/obsidian.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -291,12 +291,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704-back3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RESTful 架构</h1>
+                    <h1 class="description center-align post-title">Gravitino committer</h1>
                 </div>
             </div>
         </div>
@@ -417,21 +417,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                                <span class="chip bg-color">计算机基础</span>
-                            </a>
-                        
-                            <a href="/tags/REST%E6%9E%B6%E6%9E%84/">
-                                <span class="chip bg-color">REST架构</span>
-                            </a>
-                        
-                            <a href="/tags/HTTP%E5%8D%8F%E8%AE%AE/">
-                                <span class="chip bg-color">HTTP协议</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -439,8 +427,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" class="post-category">
-                                计算机技术
+                            <a href="/categories/%E5%BC%80%E6%BA%90/" class="post-category">
+                                开源
                             </a>
                         
                     </div>
@@ -452,21 +440,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-03-24
+                    2025-07-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-03-24
+                    2025-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    730
+                    406
                 </div>
                 
 
@@ -491,72 +479,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2>
-<p>REST (Representational State Transfer)，中文意思是：表述性状态转移。即一组架构约束条件和原则，如果一个架构符合 REST 的约束条件和原则，我们就称它为 RESTful 架构。</p>
-<ol>
-<li>在 REST 中，一切的内容都被认为是一种资源</li>
-<li>每个资源都由 URI 唯一标识</li>
-<li>使用统一的接口处理资源请求（POST/GET/PUT/DELETE/HEAD）</li>
-<li>无状态（每次请求之前是无关联，没有 session ）</li>
-</ol>
-<p>REST 可以理解为 Client 和 Server 之间的一种交互方式，即 Client 发出 HTTP 请求，Server 端的资源发生状态转移，例如更新、删除等。而 RESTful API 则可以理解为 Server 端提供具有 REST 风格的接口。</p>
-<p>符合 REST 规范的服务不应该保存客户端状态也不会保存应用的状态。</p>
-<h3 id="资源和-uri"><a class="markdownIt-Anchor" href="#资源和-uri"></a> 资源和 URI</h3>
-<ol>
-<li>使用&nbsp;<code>/</code>&nbsp;来表示资源的层级关系</li>
-<li>使用&nbsp;<code>?</code>&nbsp;用来过滤资源</li>
-<li>使用&nbsp;<code>_</code>&nbsp;或者&nbsp;<code>-</code>&nbsp;让 URI 的可读性更好</li>
-<li><code>,</code>&nbsp;或&nbsp;<code>;</code>&nbsp;可以用来表示同级资源的关系</li>
-</ol>
-<h3 id="统一资源接口"><a class="markdownIt-Anchor" href="#统一资源接口"></a> 统一资源接口</h3>
-<table>
-<thead>
-<tr>
-<th>请求方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td>获取某个资源。幂等（取多少次结果都没有变化）</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>创建一个新的资源</td>
-</tr>
-<tr>
-<td>PUT</td>
-<td>替换某个已有的资源（更新操作） ，幂等（更新多次只保存一个结果）</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>删除某个资源</td>
-</tr>
-<tr>
-<td>HEAD</td>
-<td>主要用于确认 URL 的有效性以及资源更新的日期时间等</td>
-</tr>
-<tr>
-<td>PATCH</td>
-<td>新引入的，对 PUT 方法的补充，用来对已知资源进行局部更新</td>
-</tr>
-</tbody>
-</table>
-<h3 id="资源表述"><a class="markdownIt-Anchor" href="#资源表述"></a> 资源表述</h3>
-<p>客户端通过 HTTP 方法可以获取资源，确切的来说，客户端获取的只是资源的表述而已，传输的不是资源本身。资源的表述包括数据和描述数据的元数据，例如，HTTP 头 “Content-Type” 就是这样一个元数据属性。客户端可以通过 <code>Accept</code> 头请求一种特定格式的表述，服务端则通过 <code>Content-Type</code> 告诉客户端资源的表述形式。</p>
-<h2 id="实践"><a class="markdownIt-Anchor" href="#实践"></a> 实践</h2>
-<ol>
-<li>将 API 部署在专用域名之下；</li>
-<li>将 API 的版本号放入 URL；</li>
-<li>在 RESTful 架构中，每个网址代表一种资源（resource），所以网址中不能有动词，只能有名词，而且所用的名词往往与数据库的表格名对应。一般来说，数据库中的表都是同种记录的 ”集合”（collection），所以 API 中的名词也应该使用复数。</li>
-<li>如果记录数量很多，服务器不可能都将它们返回给用户。API 应该提供参数，过滤返回结果</li>
-<li>服务器向用户返回的状态码和提示信息</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">http://api.douban.com/v2/book/:id <span class="token punctuation">(</span>获取图书信息<span class="token punctuation">)</span>
-http://api.douban.com/v2/movie/subject/:id <span class="token punctuation">(</span>电影条目信息<span class="token punctuation">)</span>
-http://api.douban.com/v2/music/:id <span class="token punctuation">(</span>获取音乐信息<span class="token punctuation">)</span>
-http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获取同城活动<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2>
+<p>Apache 软件基金会(以下简称 AFS)是世界上最大的开源软件基金会，截止目前官方的一些统计数据：</p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/v2-b3abcd6cf476d6a29e782040be26b424_1440w.jpg" alt="ASF 统计"></p>
+<p>ASF 能保证旗下 320 多个项目的社区活动运转良好，得益于其独特的组织架构和良好的制度。</p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/TB1cRcCF7voK1RjSZFNXXcxMVXa-594-184.png" alt="ASF 项目组织架构"></p>
+<ul>
+<li>用户 (User): 通过使用社区的项目构建自己的业务架构的开发者都是 Apache 的用户。</li>
+<li>贡献者 (Contributor): 帮助解答用户的问题，贡献代码或文档，在邮件列表中参与讨论设计和方案的都是 Contributor。</li>
+<li>提交者 (Committer): 贡献多了以后，就有可能经过 PMC 的提议和投票，邀请你成为 Committer。成为 Committer 也就意味着正式加入 Apache了，不但拥有相应项目的写入权限还有 <a target="_blank" rel="noopener" href="http://apache.org">apache.org</a> 的专属邮箱。成为 Committer 的一个福利是可以免费使用 JetBrains 家的全套付费产品，包括全宇宙最好用的 IntelliJ IDEA。</li>
+<li>PMC: Committer 再往上走就是 PMC，这个必须由现有 PMC 成员提名。PMC 主要负责保证开源项目的社区活动都能运转良好，包括 Roadmap 的制定，版本的发布，Committer 的提拔。</li>
+<li>ASF Member 相当于是基金会的“股东”，有董事会选举的投票权，也可以参与董事会竞选。ASF Member 也有权利决定是否接受一个新项目，主要关注 Apache 基金会本身的发展。ASF Member 通常要从 Contributor, Committer 等这些角色起步，逐步通过行动证明自己后，才可能被接受成为ASF Member。</li>
+</ul>
+<h2 id="成为-committer"><a class="markdownIt-Anchor" href="#成为-committer"></a> 成为 Committer</h2>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_95575bcd-629f-47f9-9203-657e17c3a911.png" alt="Gravitino Committer"></p>
 
                 
             </div>
@@ -583,7 +519,7 @@ http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://abyss-lord.github.io/2025/03/24/computer/2025-03-24-restful-api/">http://abyss-lord.github.io/2025/03/24/computer/2025-03-24-restful-api/</a>
+                    <a href="http://abyss-lord.github.io/2025/07/04/2025-07-04-gravitino-committer/">http://abyss-lord.github.io/2025/07/04/2025-07-04-gravitino-committer/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -620,19 +556,7 @@ http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获�
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                                    <span class="chip bg-color">计算机基础</span>
-                                </a>
-                            
-                                <a href="/tags/REST%E6%9E%B6%E6%9E%84/">
-                                    <span class="chip bg-color">REST架构</span>
-                                </a>
-                            
-                                <a href="/tags/HTTP%E5%8D%8F%E8%AE%AE/">
-                                    <span class="chip bg-color">HTTP协议</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1063,35 +987,76 @@ http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2025/06/19/gravitino/2025-06-19-gravitino-eventsystem/">
+                <a href="/2025/07/04/2025-07-04-gravitino-committer/">
                     <div class="card-image">
                         
+                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704-back3.jpg" class="responsive-img" alt="Gravitino committer">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Gravitino Event System">
-                        
-                        <span class="card-title">Gravitino Event System</span>
+                        <span class="card-title">Gravitino committer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要介绍 Gravitino 中事件系统的设计和实现细节。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%BB%84%E4%BB%B6/" class="post-category">
-                                    大数据组件
+                            <a href="/categories/%E5%BC%80%E6%BA%90/" class="post-category">
+                                    开源
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/07/02/gravitino/2025-07-02-jmh/">
+                    <div class="card-image">
+                        
+                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E5%9F%8E%E5%B8%82%E8%89%BA%E6%9C%AF%E5%9B%BE%201.jpg" class="responsive-img" alt="Gravitino 如何进行 JMH 测试">
+                        
+                        <span class="card-title">Gravitino 如何进行 JMH 测试</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            主要介绍 Gravitino 的性能测试
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
+                                    测试
                                 </a>
                             
                             
@@ -1105,69 +1070,16 @@ http://api.douban.com/v2/event/:id <span class="token punctuation">(</span>获�
                         <span class="chip bg-color">Gravitino</span>
                     </a>
                     
-                    <a href="/tags/%E5%85%83%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">元数据</span>
+                    <a href="/tags/gradle-plugin/">
+                        <span class="chip bg-color">gradle-plugin</span>
                     </a>
                     
-                    <a href="/tags/%E7%BB%9F%E4%B8%80%E5%85%83%E6%95%B0%E6%8D%AE/">
-                        <span class="chip bg-color">统一元数据</span>
+                    <a href="/tags/JMH/">
+                        <span class="chip bg-color">JMH</span>
                     </a>
                     
-                    <a href="/tags/AI-Infra/">
-                        <span class="chip bg-color">AI Infra</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/03/24/computer/2025-03-24-arguments-signature/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="参数表示方法及语法约定">
-                        
-                        <span class="card-title">参数表示方法及语法约定</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文档提供了技术文档中常用的参数表示方法和语法约定。这些符号帮助用户理解命令行工具、SQL查询和编程接口的正确用法。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/" class="post-category">
-                                    计算机技术
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">
-                        <span class="chip bg-color">计算机基础</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C/">
-                        <span class="chip bg-color">技术文档写作</span>
+                    <a href="/tags/performance-testing/">
+                        <span class="chip bg-color">performance-testing</span>
                     </a>
                     
                 </div>
