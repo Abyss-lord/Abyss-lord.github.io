@@ -8,15 +8,27 @@
       <link href="/2025/07/04/2025-07-04-gravitino-committer/"/>
       <url>/2025/07/04/2025-07-04-gravitino-committer/</url>
       
-        <content type="html"><![CDATA[<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2><p>Apache 软件基金会(以下简称 AFS)是世界上最大的开源软件基金会，截止目前官方的一些统计数据：</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/v2-b3abcd6cf476d6a29e782040be26b424_1440w.jpg" alt="ASF 统计"></p><p>ASF 能保证旗下 320 多个项目的社区活动运转良好，得益于其独特的组织架构和良好的制度。</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/TB1cRcCF7voK1RjSZFNXXcxMVXa-594-184.png" alt="ASF 项目组织架构"></p><ul><li>用户 (User): 通过使用社区的项目构建自己的业务架构的开发者都是 Apache 的用户。</li><li>贡献者 (Contributor): 帮助解答用户的问题，贡献代码或文档，在邮件列表中参与讨论设计和方案的都是 Contributor。</li><li>提交者 (Committer): 贡献多了以后，就有可能经过 PMC 的提议和投票，邀请你成为 Committer。成为 Committer 也就意味着正式加入 Apache了，不但拥有相应项目的写入权限还有 <a href="http://apache.org">apache.org</a> 的专属邮箱。成为 Committer 的一个福利是可以免费使用 JetBrains 家的全套付费产品，包括全宇宙最好用的 IntelliJ IDEA。</li><li>PMC: Committer 再往上走就是 PMC，这个必须由现有 PMC 成员提名。PMC 主要负责保证开源项目的社区活动都能运转良好，包括 Roadmap 的制定，版本的发布，Committer 的提拔。</li><li>ASF Member 相当于是基金会的“股东”，有董事会选举的投票权，也可以参与董事会竞选。ASF Member 也有权利决定是否接受一个新项目，主要关注 Apache 基金会本身的发展。ASF Member 通常要从 Contributor, Committer 等这些角色起步，逐步通过行动证明自己后，才可能被接受成为ASF Member。</li></ul><h2 id="成为-committer"><a class="markdownIt-Anchor" href="#成为-committer"></a> 成为 Committer</h2><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_95575bcd-629f-47f9-9203-657e17c3a911.png" alt="Gravitino Committer"></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2><p>Apache 软件基金会(以下简称 AFS)是世界上最大的开源软件基金会，截止目前官方的一些统计数据：</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/v2-b3abcd6cf476d6a29e782040be26b424_1440w.jpg" alt="ASF 统计"></p><p>ASF 能保证旗下 320 多个项目的社区活动运转良好，得益于其独特的组织架构和良好的制度。</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704ASF%20%E9%A1%B9%E7%9B%AE%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84.png" alt="ASF 项目组织架构"></p><ul><li>用户 (User): 通过使用社区的项目构建自己的业务架构的开发者都是 Apache 的用户。</li><li>贡献者 (Contributor): 帮助解答用户的问题，贡献代码或文档，在邮件列表中参与讨论设计和方案的都是 Contributor。</li><li>提交者 (Committer): 贡献多了以后，就有可能经过 PMC 的提议和投票，邀请你成为 Committer。成为 Committer 也就意味着正式加入 Apache了，不但拥有相应项目的写入权限还有 <a href="http://apache.org">apache.org</a> 的专属邮箱。成为 Committer 的一个福利是可以免费使用 JetBrains 家的全套付费产品，包括全宇宙最好用的 IntelliJ IDEA。</li><li>PMC: Committer 再往上走就是 PMC，这个必须由现有 PMC 成员提名。PMC 主要负责保证开源项目的社区活动都能运转良好，包括 Roadmap 的制定，版本的发布，Committer 的提拔。</li><li>ASF Member 相当于是基金会的“股东”，有董事会选举的投票权，也可以参与董事会竞选。ASF Member 也有权利决定是否接受一个新项目，主要关注 Apache 基金会本身的发展。ASF Member 通常要从 Contributor, Committer 等这些角色起步，逐步通过行动证明自己后，才可能被接受成为ASF Member。</li></ul><h2 id="成为-committer"><a class="markdownIt-Anchor" href="#成为-committer"></a> 成为 Committer</h2><p>🎉叮！开源成就 +1 🎖️<br>很荣幸正式成为 Apache Gravitino 的 Committer！</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_95575bcd-629f-47f9-9203-657e17c3a911.png" alt="Gravitino Committer"></p><p>感谢 Gravitino 社区的每一位小伙伴，感谢你们的耐心指导、无私分享，以及一次次细致入微的 code review。没有你们的帮助，我无法取得今天的成果。也特别感谢公司领导和团队的支持，让我能够在工作中持续、深入地参与开源，将热爱转化为真正的影响力。</p><p>最后，由衷感谢一直陪伴在我身边的老婆狗🐶——那些焦虑的日夜里，是你的理解与陪伴抚平了我的情绪，让我得以坚定地走下去。</p><p>每一次机会都来之不易，愿我们都能抓住人生中的每一个可能，在热爱中坚定前行 ❤️</p>]]></content>
       
       
       <categories>
           
-          <category> 开源 </category>
+          <category> 个人 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> committer </tag>
+            
+            <tag> ASF </tag>
+            
+            <tag> 开源 </tag>
+            
+        </tags>
       
     </entry>
     
