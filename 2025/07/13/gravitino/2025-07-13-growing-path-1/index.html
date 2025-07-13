@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Gravitino 如何进行 JMH 测试, 大数据, Hive, Unified Metadata">
+    <meta name="keywords" content="Gravitino Committer 成长之路（1）, 大数据, Hive, Unified Metadata">
     <meta name="description" content="分享一下前进道路上的点点滴滴">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Gravitino 如何进行 JMH 测试 | Plord的个人空间</title>
+    <title>Gravitino Committer 成长之路（1） | Plord的个人空间</title>
     <link rel="icon" type="image/png" href="/medias/obsidian.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -296,7 +296,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Gravitino 如何进行 JMH 测试</h1>
+                    <h1 class="description center-align post-title">Gravitino Committer 成长之路（1）</h1>
                 </div>
             </div>
         </div>
@@ -419,20 +419,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Gravitino/">
-                                <span class="chip bg-color">Gravitino</span>
+                            <a href="/tags/github/">
+                                <span class="chip bg-color">github</span>
                             </a>
                         
-                            <a href="/tags/gradle-plugin/">
-                                <span class="chip bg-color">gradle-plugin</span>
+                            <a href="/tags/committer/">
+                                <span class="chip bg-color">committer</span>
                             </a>
                         
-                            <a href="/tags/JMH/">
-                                <span class="chip bg-color">JMH</span>
+                            <a href="/tags/ASF/">
+                                <span class="chip bg-color">ASF</span>
                             </a>
                         
-                            <a href="/tags/performance-testing/">
-                                <span class="chip bg-color">performance-testing</span>
+                            <a href="/tags/%E5%BC%80%E6%BA%90/">
+                                <span class="chip bg-color">开源</span>
                             </a>
                         
                     </div>
@@ -443,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
-                                测试
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA/" class="post-category">
+                                个人
                             </a>
                         
                     </div>
@@ -456,21 +456,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-07-02
+                    2025-07-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-07-04
+                    2025-07-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.1k
                 </div>
                 
 
@@ -495,210 +495,81 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="概览"><a class="markdownIt-Anchor" href="#概览"></a> 概览</h2>
-<p>Gravitino JMH 目录包含一套基于&nbsp;JMH&nbsp;的微基准测试（Microbenchmark）套件，专门用于评估 Gravitino 中核心子系统的性能特征，如：实体缓存（Entity Cache）、元数据解析逻辑以及并发控制机制等。</p>
-<h2 id="执行方式"><a class="markdownIt-Anchor" href="#执行方式"></a> 执行方式</h2>
-<p>使用如下命令运行 JMH 测试：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./gradlew :core:jmh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>测试完成后，结果将保存于：<code>build/reports/jmh</code>&nbsp;目录中。</p>
-<h2 id="示例报告格式"><a class="markdownIt-Anchor" href="#示例报告格式"></a> 示例报告格式</h2>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Benchmark                                         <span class="token punctuation">(</span>totalCnt<span class="token punctuation">)</span>  Mode  Cnt        Score        Error  Units
-EntityCacheGetBenchmark.benchmarkGet                     <span class="token number">100</span>  thrpt   <span class="token number">10</span>  <span class="token number">17906401.139</span> ±  <span class="token number">905521.957</span>  ops/s
-EntityCachePutBenchmark.benchmarkPut                   <span class="token number">1000</span>  avgt    <span class="token number">10</span>       <span class="token number">0.002</span> ±     <span class="token number">0.001</span>   s/op<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="成长道路"><a class="markdownIt-Anchor" href="#成长道路"></a> 成长道路</h2>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713132228264.png" alt="贡献时间轴"></p>
+<p>从 2024 年 12 月 6 日合并了在 Apache Gravitino 项目的第一个 PR，到 2025 年 7 月 3 日正式成为 Committer，一共经历了 7 个月， 209 天。在这段时间里，我共提交了 127 个 PR，合并了其中的 124 个，累计增删代码超过 5 万行，主要贡献于 Gravitino 核心框架及其附属的 MCP 项目。</p>
+<p>我想通过几期博客，分享一下，我作为一个用户，是如何在开源项目中，从“贡献者”一步步赢得社区 PMC 的信任，最终成为 Apache Committer；以及，开源又如何在这个过程中，为个人和企业带来实质性价值。</p>
+<p>我的博客将会分为两期</p>
 <ul>
-<li><strong>Score</strong>：每秒操作数或每次调用耗时；</li>
-<li><strong>Error</strong>：误差范围（通常为 99.9% 置信区间），即结果可信区间为 Score ± Error；</li>
+<li>第一期主要介绍"为什么参与开源"以及 “ASF 社区生态”</li>
+<li>第二期主要介绍"成为 Committer 的关键路径"以及"我的收获"</li>
 </ul>
-<p>例如：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Score: <span class="token number">19008727.28</span> ops/s
-Error: ± <span class="token number">1172892.70</span> ops/s
-<span class="token operator">=</span><span class="token operator">&gt;</span> 实际性能大概率处于 <span class="token number">17,835</span>,834 ~ <span class="token number">20,181</span>,620 ops/s 之间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>误差越小，说明测试结果越稳定可靠。</p>
-<h2 id="什么是-jmh"><a class="markdownIt-Anchor" href="#什么是-jmh"></a> 什么是 JMH？</h2>
-<p>JMH（Java Microbenchmark Harness）是 OpenJDK 团队专为 Java 微基准测试开发的框架，主要用于精确测量方法调用、缓存访问、对象分配等细粒度操作的性能。</p>
-<p>相较于传统测试方式，JMH 能处理如下影响因素：</p>
+<h2 id="为什么参与开源"><a class="markdownIt-Anchor" href="#为什么参与开源"></a> 为什么参与开源</h2>
+<h3 id="企业视角"><a class="markdownIt-Anchor" href="#企业视角"></a> 企业视角</h3>
+<p>从企业视角来看这个问题，参与社区开发有如下几个好处：</p>
 <ul>
-<li>JIT 编译和 JVM 热身（warm-up）</li>
-<li>死代码消除（Dead Code Elimination）</li>
-<li>逃逸分析（Escape Analysis）</li>
-<li>线程争用和伪共享（False Sharing）</li>
+<li><strong>提升技术影响力</strong>：将改进贡献开源可降低维护成本、提升影响力，让企业从适配者转变为生态共建者；</li>
+<li><strong>了解行业需求</strong>：开源社区连接真实需求与技术趋势，助力企业洞察痛点、优化产品设计与研发决策；</li>
+<li><strong>开源是最实战的培训平台</strong>：开源提供真实项目环境，助力企业低成本培养具备规范意识与实战经验的高质量工程人才。</li>
 </ul>
-<p>JMH 提供基于注解的 API，并自动处理多次迭代、预热、JVM fork 和统计报告，已被广泛应用于 JDK、Spring、Netty、Lucene 等高性能项目。</p>
-<h3 id="示例基准代码"><a class="markdownIt-Anchor" href="#示例基准代码"></a> 示例基准代码</h3>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@BenchmarkMode</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">Mode<span class="token punctuation">.</span>Throughput</span><span class="token punctuation">,</span> <span class="token class-name">Mode<span class="token punctuation">.</span>AverageTime</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@OutputTimeUnit</span><span class="token punctuation">(</span><span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">SECONDS</span><span class="token punctuation">)</span>
-<span class="token annotation punctuation">@State</span><span class="token punctuation">(</span><span class="token class-name">Scope<span class="token punctuation">.</span>Thread</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StringConnectTest</span> <span class="token punctuation">{</span>
-
-  <span class="token annotation punctuation">@Param</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token string">"50"</span><span class="token punctuation">,</span> <span class="token string">"100"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token keyword">private</span> <span class="token keyword">int</span> length<span class="token punctuation">;</span>
-
-  <span class="token annotation punctuation">@Benchmark</span>
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testStringAdd</span><span class="token punctuation">(</span><span class="token class-name">Blackhole</span> blackhole<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      a <span class="token operator">+=</span> i<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    blackhole<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token annotation punctuation">@Benchmark</span>
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testStringBuilderAdd</span><span class="token punctuation">(</span><span class="token class-name">Blackhole</span> blackhole<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token class-name">StringBuilder</span> sb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      sb<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    blackhole<span class="token punctuation">.</span><span class="token function">consume</span><span class="token punctuation">(</span>sb<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="常用注解说明"><a class="markdownIt-Anchor" href="#常用注解说明"></a> 常用注解说明</h4>
-<table>
-<thead>
-<tr>
-<th>注解</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>@Benchmark</code></td>
-<td>声明基准方法，JMH 会多次调用并测量其性能</td>
-</tr>
-<tr>
-<td><code>@BenchmarkMode</code></td>
-<td>设置测量模式，如吞吐量（Throughput）、平均时间（AverageTime）</td>
-</tr>
-<tr>
-<td><code>@OutputTimeUnit</code></td>
-<td>设置时间单位，如秒（SECONDS）、毫秒、纳秒等</td>
-</tr>
-<tr>
-<td><code>@State</code></td>
-<td>设置对象共享粒度，常用为&nbsp;<code>Scope.Thread</code>（每线程独立）</td>
-</tr>
-<tr>
-<td><code>@Param</code></td>
-<td>参数化测试，生成多组输入用例</td>
-</tr>
-</tbody>
-</table>
-<h4 id="benchmarkmode-模式说明"><a class="markdownIt-Anchor" href="#benchmarkmode-模式说明"></a> BenchmarkMode 模式说明</h4>
-<table>
-<thead>
-<tr>
-<th>模式</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Throughput</code></td>
-<td>吞吐量，每秒完成操作数</td>
-</tr>
-<tr>
-<td><code>AverageTime</code></td>
-<td>每次操作的平均耗时</td>
-</tr>
-<tr>
-<td><code>SampleTime</code></td>
-<td>对多个样本测量操作耗时，展示分布</td>
-</tr>
-<tr>
-<td><code>SingleShotTime</code></td>
-<td>单次调用耗时，适合冷启动分析</td>
-</tr>
-<tr>
-<td><code>All</code></td>
-<td>执行所有模式</td>
-</tr>
-</tbody>
-</table>
-<h2 id="在-gravitino-中使用-jmh"><a class="markdownIt-Anchor" href="#在-gravitino-中使用-jmh"></a> 在 Gravitino 中使用 JMH</h2>
-<p>Gravitino 使用&nbsp;<a target="_blank" rel="noopener" href="https://github.com/melix/jmh-gradle-plugin">jmh-gradle-plugin</a>&nbsp;集成 JMH 到 Gradle 构建中。</p>
-<h3 id="插件配置"><a class="markdownIt-Anchor" href="#插件配置"></a> 插件配置</h3>
-<p>在&nbsp;<code>build.gradle</code>&nbsp;中添加：</p>
-<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">plugins <span class="token punctuation">{</span>
-  id <span class="token interpolation-string"><span class="token string">"me.champeau.jmh"</span></span> version <span class="token interpolation-string"><span class="token string">"0.7.3"</span></span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>首先，大多数组织和个人参与开源的初衷，往往是出于实际需求：他们希望改进正在使用的开源项目，使其更加稳定、易用、契合自身场景；或者干脆将内部自研的工具开源，构建自己的“轮子”。虽然这些功能可以选择内部使用、不对外共享，但将其<strong>贡献回社区</strong>才是真正实现长期价值最大化的方式。一方面，这有助于提升整体项目的质量与活跃度；另一方面，若不将代码上游合并，未来项目升级时可能因版本不兼容而导致功能失效，反而增加维护成本。更重要的是，积极参与开源贡献还能显著提升公司的技术影响力，让企业在项目的发展方向、版本规划、功能设计等方面拥有更多话语权，真正从“使用者”转变为“参与者”与“推动者”。其次，开源社区本身就是技术需求的“集散地”。通过与上下游用户、开发者互动，公司能更早接触到用户的真实的痛点与趋势，从而反哺内部产品设计与研发决策。最后，开源代码的审查严格，有助于提升员工的技术功底，变相节省了企业的培训成本。</p>
+<h3 id="个人视角"><a class="markdownIt-Anchor" href="#个人视角"></a> 个人视角</h3>
+<p>从开发者个人来看，参与开源贡献有如下几个好处：</p>
+<ul>
+<li><strong>学习到系统的工程能力</strong>：开源锻炼工程能力与架构思维，提升规范意识与全局视野；</li>
+<li><strong>提升表达和协作能力</strong>：开源是跨地域协作中的沟通语言，提升技术表达力与接受多元反馈的能力；</li>
+<li><strong>提升内在成就感</strong>：开源带来被看见的成就感，激发内驱力，增强责任感与持续贡献的动力。</li>
+</ul>
+<p>参与开源，有助于开发者系统性地掌握软件工程能力。开源项目更加注重架构设计的合理性、代码的可维护性，以及系统在长期演进中的可持续性。通过实践，开发者能够逐步理解架构背后的权衡逻辑，学会如何划分模块边界、如何实现 SOLID 的设计。与此同时，开源提供了完整的工程流程体验，从代码提交、自动化测试、CI 校验，到文档同步、版本发布，每一个环节都高度标准化。这不仅显著提升了开发者的编码能力和技术广度，也帮助开发者熟悉 GitHub Flow、Issue/PR 驱动协作模式，以及主流社区所推崇的开发规范与工具链，为其打下了坚实的工程基础。</p>
+<p>此外，开源不仅仅是代码的集合，更是一种协作的语言。在与社区的互动中，开发者不仅要完成代码实现，还常常需要参与到设计讨论、文档编写等工作中。这就要求他能够清晰地表达自己的意图、设计思路以及问题的定位过程。开源也是一种高频率、去中心化的协作方式。开发者需要习惯与陌生人协同开发，接受代码被审查、被质疑，甚至听到“这个设计不合理”的反馈。在不断的沟通与磨合中，开源会帮助开发者逐渐学会倾听与尊重，理解不同文化背景、技术视角下的表达。</p>
+<p>最后，参与开源可以带来持续的成就感与责任感。当开发者自己的代码被社区合并、功能出现在 release note 中，可以清晰地感受到自己的工作被真正使用和认可，这提升了开发者内在的成就感，同时也可以给他们带来好心情。</p>
+<h2 id="开源社区"><a class="markdownIt-Anchor" href="#开源社区"></a> 开源社区</h2>
+<h3 id="asf-社区"><a class="markdownIt-Anchor" href="#asf-社区"></a> ASF 社区</h3>
+<p>Apache Software Foundation（ASF）&nbsp;成立于 1999 年，是一个非营利组织，旨在为开源软件项目提供法律、基础设施和治理支持。是目前最大的软件基金会，ASF 的开源软件在世界各地被广泛使用，ASF 目前管理者超过 8,400 名 Committer 以及 320 个活跃的项目。ASF 的一个重要的理念是“社区优于代码”，即一个强大的社区总能修复代码中的问题，而一个不健康的社区则很难以可持续的方式维护代码。</p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713133110777.png" alt="社区结构"></p>
+<p>对于开源项目而言，抽象来看，社区一般有两种重要角色，</p>
+<ul>
+<li>用户（使用该项目的人）</li>
+<li>贡献者（对项目有贡献的人）。</li>
+</ul>
+<p>这样一个社区模型，是一个分层模型。在普通用户中会有一些人将项目在生产中使用，这样的用户就是产品用户（Production User）；有些用户在使用过程中会遇到 Bug 或者发掘可以提升的点，并以 Issue 的形式暴露出来，这部分用户称之为 Issue-raised User，通常这类用户从 Production User 中产生。如果用户可以动手解决问题，并将 Bug Fix 和 improvement 提交到社区，这样的用户就是代码贡献者（Code Contributor）。如果一个贡献者提交了很多的代码，并且为项目做出了重大贡献，那么这样的贡献者称之为核心贡献者（Committer/Maintainer）。</p>
+<p>通常来说一个健康的社区都是由这样的层次构建而来，并且每一层都有一定的比例，且在不停地由上而下的转换。开源中提到的社区实际上指的是由用户和代码贡献者共同构建的生态。</p>
+<p>代码贡献者也具有层级结构，一般情况下可以将其分为如下几个层级：</p>
+<ol>
+<li>Contributors</li>
+<li>Committer</li>
+<li>PMC</li>
+</ol>
+<p>就责任而言，Contributors 主要负责具体的代码实现；Committer 更注重代码设计与评审，具体来说包括：</p>
+<ol>
+<li>代码与设计评审</li>
+<li>分支管理</li>
+<li>合并与回滚补丁</li>
+<li>协助 PMC 发布版本</li>
+</ol>
+<p>相比而言，PMC 主要负责项目的决策、发展方向以及社区的生态建设，具体来说包括：</p>
+<ol>
+<li>提名并选举新的 PMC 成员和 Committer</li>
+<li>决定路线图与版本发布</li>
+<li>负责商标、知识产权管理</li>
+<li>审查项目进度并提供反馈</li>
+</ol>
+<h3 id="如何参与社区工作"><a class="markdownIt-Anchor" href="#如何参与社区工作"></a> 如何参与社区工作</h3>
+<p>参与社区工作的步骤可以抽象成</p>
+<p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713133933700.png" alt="贡献流程"></p>
+<ol>
+<li>找到解决的 Issue；</li>
+<li>创建开发分支</li>
+<li>完成代码开发和测试；</li>
+<li>提交合并 PR；</li>
+<li>邀请 maintainer Code Review；</li>
+<li>修改/合并/拒绝</li>
+</ol>
+<p>这里需要注意的是部分项目直接使用 github 的 issue 进行问题追踪；有些项目则使用 jira 作问题追踪。</p>
 <blockquote>
-<p>注意：0.6.0 之前版本的插件 ID 为&nbsp;<code>me.champeau.gradle.jmh</code></p>
+<p>如果模块 Maintainer 认为这个 PR 存在较大问题，他可以直接 close 对应的 PR 和 Issue。</p>
 </blockquote>
-<h3 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构"></a> 目录结构</h3>
-<p>基准测试文件需放置于以下目录：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">src/jmh/java       <span class="token comment"># Java 测试代码</span>
-src/jmh/resources  <span class="token comment"># 资源文件（可选）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="依赖引入"><a class="markdownIt-Anchor" href="#依赖引入"></a> 依赖引入</h3>
-<p>若基准测试依赖第三方库，如 commons-io，可在&nbsp;<code>dependencies</code>&nbsp;中添加：</p>
-<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
-  jmh <span class="token string">'commons-io:commons-io:2.7'</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>要指定 JMH 版本：</p>
-<pre class="line-numbers language-groovy" data-language="groovy"><code class="language-groovy">dependencies <span class="token punctuation">{</span>
-  jmh <span class="token string">'org.openjdk.jmh:jmh-core:1.37'</span>
-  jmh <span class="token string">'org.openjdk.jmh:jmh-generator-annprocess:1.37'</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="jmh-测试任务"><a class="markdownIt-Anchor" href="#jmh-测试任务"></a> JMH 测试任务</h3>
-<table>
-<thead>
-<tr>
-<th>任务名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>jmhClasses</code></td>
-<td>编译测试源代码</td>
-</tr>
-<tr>
-<td><code>jmhRunBytecodeGenerator</code></td>
-<td>运行字节码生成器</td>
-</tr>
-<tr>
-<td><code>jmhCompileGeneratedClasses</code></td>
-<td>编译生成代码</td>
-</tr>
-<tr>
-<td><code>jmhJar</code></td>
-<td>打包成可运行 JMH jar</td>
-</tr>
-<tr>
-<td><code>jmh</code></td>
-<td>执行所有基准测试（主任务）</td>
-</tr>
-</tbody>
-</table>
-<p>执行命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./gradlew :core:jmh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="常用配置项"><a class="markdownIt-Anchor" href="#常用配置项"></a> 常用配置项</h3>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">jmh <span class="token punctuation">{</span>
-  includes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'.*Benchmark'</span><span class="token punctuation">]</span>     // 正则匹配要执行的测试类
-  iterations <span class="token operator">=</span> <span class="token number">10</span>                // 测量阶段迭代次数
-  warmupIterations <span class="token operator">=</span> <span class="token number">5</span>           // 预热阶段迭代次数
-  fork <span class="token operator">=</span> <span class="token number">1</span>                       // JVM 启动次数（独立运行）
-  threads <span class="token operator">=</span> <span class="token number">4</span>                    // 工作线程数
-  resultFormat <span class="token operator">=</span> <span class="token string">'CSV'</span>          // 报告格式（CSV、JSON、TEXT等）
-  resultsFile <span class="token operator">=</span> file<span class="token punctuation">(</span><span class="token string">"<span class="token variable">$buildDir</span>/reports/jmh/results.csv"</span><span class="token punctuation">)</span>
-  includeTests <span class="token operator">=</span> <span class="token boolean">true</span>            // 是否包含 <span class="token builtin class-name">test</span> 目录中的类
-  duplicateClassesStrategy <span class="token operator">=</span> DuplicatesStrategy.FAIL
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>更多映射与命令行选项见：<a target="_blank" rel="noopener" href="https://github.com/melix/jmh-gradle-plugin#configuration-options">配置选项映射表</a></p>
-<h2 id="jmh-补充说明"><a class="markdownIt-Anchor" href="#jmh-补充说明"></a> JMH 补充说明</h2>
-<h3 id="为什么需要-warm-up预热"><a class="markdownIt-Anchor" href="#为什么需要-warm-up预热"></a> 为什么需要 Warm-up（预热）？</h3>
-<p>由于 JVM 存在 JIT 编译机制，频繁调用的方法可能会被编译为本地代码。预热阶段可确保测试结果更贴近生产环境下的真实性能。</p>
-<h3 id="可视化工具"><a class="markdownIt-Anchor" href="#可视化工具"></a> 可视化工具</h3>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://deepoove.com/jmh-visual-chart/">JMH Visual Chart</a></li>
-<li><a target="_blank" rel="noopener" href="https://jmh.morethan.io/">JMH Visualizer</a></li>
-</ul>
-<p>支持导入 JSON/CSV 报告生成图表。</p>
-<h3 id="intellij-插件支持"><a class="markdownIt-Anchor" href="#intellij-插件支持"></a> IntelliJ 插件支持</h3>
-<p>安装 JMH 插件后，可像运行 JUnit 一样运行基准测试：</p>
-<ul>
-<li>自动生成带&nbsp;<code>@Benchmark</code>&nbsp;的方法模板</li>
-<li>单独运行方法或类中的所有测试</li>
-<li>插件路径：<code>File → Settings → Plugins → 搜索 JMH</code></li>
-</ul>
+<p>未完待续…</p>
 
                 
             </div>
@@ -725,7 +596,7 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/">http://abyss-lord.github.io/2025/07/02/gravitino/2025-07-02-jmh/</a>
+                    <a href="http://abyss-lord.github.io/2025/07/13/gravitino/2025-07-13-growing-path-1/">http://abyss-lord.github.io/2025/07/13/gravitino/2025-07-13-growing-path-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,20 +634,20 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Gravitino/">
-                                    <span class="chip bg-color">Gravitino</span>
+                                <a href="/tags/github/">
+                                    <span class="chip bg-color">github</span>
                                 </a>
                             
-                                <a href="/tags/gradle-plugin/">
-                                    <span class="chip bg-color">gradle-plugin</span>
+                                <a href="/tags/committer/">
+                                    <span class="chip bg-color">committer</span>
                                 </a>
                             
-                                <a href="/tags/JMH/">
-                                    <span class="chip bg-color">JMH</span>
+                                <a href="/tags/ASF/">
+                                    <span class="chip bg-color">ASF</span>
                                 </a>
                             
-                                <a href="/tags/performance-testing/">
-                                    <span class="chip bg-color">performance-testing</span>
+                                <a href="/tags/%E5%BC%80%E6%BA%90/">
+                                    <span class="chip bg-color">开源</span>
                                 </a>
                             
                         </div>
@@ -1209,28 +1080,29 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2025/07/04/gravitino/2025-07-04-gravitino-committer/">
+                <a href="/2025/07/13/gravitino/2025-07-13-growing-path-1/">
                     <div class="card-image">
                         
-                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704-back3.jpg" class="responsive-img" alt="Gravitino committer">
+                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E5%9F%8E%E5%B8%82%E8%89%BA%E6%9C%AF%E5%9B%BE%201.jpg" class="responsive-img" alt="Gravitino Committer 成长之路（1）">
                         
-                        <span class="card-title">Gravitino committer</span>
+                        <span class="card-title">Gravitino Committer 成长之路（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2025-07-03 正式成为 Gravitino Committer
+                            介绍个人的 Apache Committer 成长之路
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-07-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1243,6 +1115,7 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1273,30 +1146,30 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/07/02/gravitino/2025-07-02-jcstress/">
+                <a href="/2025/07/04/gravitino/2025-07-04-gravitino-committer/">
                     <div class="card-image">
                         
-                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E5%9F%8E%E5%B8%82%E8%89%BA%E6%9C%AF%E5%9B%BE%201.jpg" class="responsive-img" alt="Gravitino 如何进行一致性测试">
+                        <img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704-back3.jpg" class="responsive-img" alt="Gravitino committer">
                         
-                        <span class="card-title">Gravitino 如何进行一致性测试</span>
+                        <span class="card-title">Gravitino committer</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            主要介绍如何在 Gravitino 中使用 jcstress 进行一致性测试
+                            2025-07-03 正式成为 Gravitino Committer
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B5%8B%E8%AF%95/" class="post-category">
-                                    测试
+                            <a href="/categories/%E4%B8%AA%E4%BA%BA/" class="post-category">
+                                    个人
                                 </a>
                             
                             
@@ -1306,24 +1179,20 @@ src/jmh/resources  <span class="token comment"># 资源文件（可选）</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Gravitino/">
-                        <span class="chip bg-color">Gravitino</span>
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
                     </a>
                     
-                    <a href="/tags/JCStress/">
-                        <span class="chip bg-color">JCStress</span>
+                    <a href="/tags/committer/">
+                        <span class="chip bg-color">committer</span>
                     </a>
                     
-                    <a href="/tags/gradle-plugin/">
-                        <span class="chip bg-color">gradle-plugin</span>
+                    <a href="/tags/ASF/">
+                        <span class="chip bg-color">ASF</span>
                     </a>
                     
-                    <a href="/tags/concurrency-testing/">
-                        <span class="chip bg-color">concurrency-testing</span>
-                    </a>
-                    
-                    <a href="/tags/thread-safety/">
-                        <span class="chip bg-color">thread-safety</span>
+                    <a href="/tags/%E5%BC%80%E6%BA%90/">
+                        <span class="chip bg-color">开源</span>
                     </a>
                     
                 </div>

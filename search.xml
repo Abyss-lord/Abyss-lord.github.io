@@ -4,11 +4,42 @@
   
     
     <entry>
-      <title>Gravitino committer</title>
-      <link href="/2025/07/04/2025-07-04-gravitino-committer/"/>
-      <url>/2025/07/04/2025-07-04-gravitino-committer/</url>
+      <title>Gravitino Committer 成长之路（1）</title>
+      <link href="/2025/07/13/gravitino/2025-07-13-growing-path-1/"/>
+      <url>/2025/07/13/gravitino/2025-07-13-growing-path-1/</url>
       
-        <content type="html"><![CDATA[<h2 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h2><p>Apache 软件基金会(以下简称 AFS)是世界上最大的开源软件基金会，截止目前官方的一些统计数据：</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/v2-b3abcd6cf476d6a29e782040be26b424_1440w.jpg" alt="ASF 统计"></p><p>ASF 能保证旗下 320 多个项目的社区活动运转良好，得益于其独特的组织架构和良好的制度。</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/20250704ASF%20%E9%A1%B9%E7%9B%AE%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84.png" alt="ASF 项目组织架构"></p><ul><li>用户 (User): 通过使用社区的项目构建自己的业务架构的开发者都是 Apache 的用户。</li><li>贡献者 (Contributor): 帮助解答用户的问题，贡献代码或文档，在邮件列表中参与讨论设计和方案的都是 Contributor。</li><li>提交者 (Committer): 贡献多了以后，就有可能经过 PMC 的提议和投票，邀请你成为 Committer。成为 Committer 也就意味着正式加入 Apache了，不但拥有相应项目的写入权限还有 <a href="http://apache.org">apache.org</a> 的专属邮箱。成为 Committer 的一个福利是可以免费使用 JetBrains 家的全套付费产品，包括全宇宙最好用的 IntelliJ IDEA。</li><li>PMC: Committer 再往上走就是 PMC，这个必须由现有 PMC 成员提名。PMC 主要负责保证开源项目的社区活动都能运转良好，包括 Roadmap 的制定，版本的发布，Committer 的提拔。</li><li>ASF Member 相当于是基金会的“股东”，有董事会选举的投票权，也可以参与董事会竞选。ASF Member 也有权利决定是否接受一个新项目，主要关注 Apache 基金会本身的发展。ASF Member 通常要从 Contributor, Committer 等这些角色起步，逐步通过行动证明自己后，才可能被接受成为ASF Member。</li></ul><h2 id="成为-committer"><a class="markdownIt-Anchor" href="#成为-committer"></a> 成为 Committer</h2><p>🎉叮！开源成就 +1 🎖️<br>很荣幸正式成为 Apache Gravitino 的 Committer！</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_95575bcd-629f-47f9-9203-657e17c3a911.png" alt="Gravitino Committer"></p><p>感谢 Gravitino 社区的每一位小伙伴，感谢你们的耐心指导、无私分享，以及一次次细致入微的 code review。没有你们的帮助，我无法取得今天的成果。也特别感谢公司领导和团队的支持，让我能够在工作中持续、深入地参与开源，将热爱转化为真正的影响力。</p><p>最后，由衷感谢一直陪伴在我身边的老婆狗🐶——那些焦虑的日夜里，是你的理解与陪伴抚平了我的情绪，让我得以坚定地走下去。</p><p>每一次机会都来之不易，愿我们都能抓住人生中的每一个可能，在热爱中坚定前行 ❤️</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="成长道路"><a class="markdownIt-Anchor" href="#成长道路"></a> 成长道路</h2><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713132228264.png" alt="贡献时间轴"></p><p>从 2024 年 12 月 6 日合并了在 Apache Gravitino 项目的第一个 PR，到 2025 年 7 月 3 日正式成为 Committer，一共经历了 7 个月， 209 天。在这段时间里，我共提交了 127 个 PR，合并了其中的 124 个，累计增删代码超过 5 万行，主要贡献于 Gravitino 核心框架及其附属的 MCP 项目。</p><p>我想通过几期博客，分享一下，我作为一个用户，是如何在开源项目中，从“贡献者”一步步赢得社区 PMC 的信任，最终成为 Apache Committer；以及，开源又如何在这个过程中，为个人和企业带来实质性价值。</p><p>我的博客将会分为两期</p><ul><li>第一期主要介绍"为什么参与开源"以及 “ASF 社区生态”</li><li>第二期主要介绍"成为 Committer 的关键路径"以及"我的收获"</li></ul><h2 id="为什么参与开源"><a class="markdownIt-Anchor" href="#为什么参与开源"></a> 为什么参与开源</h2><h3 id="企业视角"><a class="markdownIt-Anchor" href="#企业视角"></a> 企业视角</h3><p>从企业视角来看这个问题，参与社区开发有如下几个好处：</p><ul><li><strong>提升技术影响力</strong>：将改进贡献开源可降低维护成本、提升影响力，让企业从适配者转变为生态共建者；</li><li><strong>了解行业需求</strong>：开源社区连接真实需求与技术趋势，助力企业洞察痛点、优化产品设计与研发决策；</li><li><strong>开源是最实战的培训平台</strong>：开源提供真实项目环境，助力企业低成本培养具备规范意识与实战经验的高质量工程人才。</li></ul><p>首先，大多数组织和个人参与开源的初衷，往往是出于实际需求：他们希望改进正在使用的开源项目，使其更加稳定、易用、契合自身场景；或者干脆将内部自研的工具开源，构建自己的“轮子”。虽然这些功能可以选择内部使用、不对外共享，但将其<strong>贡献回社区</strong>才是真正实现长期价值最大化的方式。一方面，这有助于提升整体项目的质量与活跃度；另一方面，若不将代码上游合并，未来项目升级时可能因版本不兼容而导致功能失效，反而增加维护成本。更重要的是，积极参与开源贡献还能显著提升公司的技术影响力，让企业在项目的发展方向、版本规划、功能设计等方面拥有更多话语权，真正从“使用者”转变为“参与者”与“推动者”。其次，开源社区本身就是技术需求的“集散地”。通过与上下游用户、开发者互动，公司能更早接触到用户的真实的痛点与趋势，从而反哺内部产品设计与研发决策。最后，开源代码的审查严格，有助于提升员工的技术功底，变相节省了企业的培训成本。</p><h3 id="个人视角"><a class="markdownIt-Anchor" href="#个人视角"></a> 个人视角</h3><p>从开发者个人来看，参与开源贡献有如下几个好处：</p><ul><li><strong>学习到系统的工程能力</strong>：开源锻炼工程能力与架构思维，提升规范意识与全局视野；</li><li><strong>提升表达和协作能力</strong>：开源是跨地域协作中的沟通语言，提升技术表达力与接受多元反馈的能力；</li><li><strong>提升内在成就感</strong>：开源带来被看见的成就感，激发内驱力，增强责任感与持续贡献的动力。</li></ul><p>参与开源，有助于开发者系统性地掌握软件工程能力。开源项目更加注重架构设计的合理性、代码的可维护性，以及系统在长期演进中的可持续性。通过实践，开发者能够逐步理解架构背后的权衡逻辑，学会如何划分模块边界、如何实现 SOLID 的设计。与此同时，开源提供了完整的工程流程体验，从代码提交、自动化测试、CI 校验，到文档同步、版本发布，每一个环节都高度标准化。这不仅显著提升了开发者的编码能力和技术广度，也帮助开发者熟悉 GitHub Flow、Issue/PR 驱动协作模式，以及主流社区所推崇的开发规范与工具链，为其打下了坚实的工程基础。</p><p>此外，开源不仅仅是代码的集合，更是一种协作的语言。在与社区的互动中，开发者不仅要完成代码实现，还常常需要参与到设计讨论、文档编写等工作中。这就要求他能够清晰地表达自己的意图、设计思路以及问题的定位过程。开源也是一种高频率、去中心化的协作方式。开发者需要习惯与陌生人协同开发，接受代码被审查、被质疑，甚至听到“这个设计不合理”的反馈。在不断的沟通与磨合中，开源会帮助开发者逐渐学会倾听与尊重，理解不同文化背景、技术视角下的表达。</p><p>最后，参与开源可以带来持续的成就感与责任感。当开发者自己的代码被社区合并、功能出现在 release note 中，可以清晰地感受到自己的工作被真正使用和认可，这提升了开发者内在的成就感，同时也可以给他们带来好心情。</p><h2 id="开源社区"><a class="markdownIt-Anchor" href="#开源社区"></a> 开源社区</h2><h3 id="asf-社区"><a class="markdownIt-Anchor" href="#asf-社区"></a> ASF 社区</h3><p>Apache Software Foundation（ASF）&nbsp;成立于 1999 年，是一个非营利组织，旨在为开源软件项目提供法律、基础设施和治理支持。是目前最大的软件基金会，ASF 的开源软件在世界各地被广泛使用，ASF 目前管理者超过 8,400 名 Committer 以及 320 个活跃的项目。ASF 的一个重要的理念是“社区优于代码”，即一个强大的社区总能修复代码中的问题，而一个不健康的社区则很难以可持续的方式维护代码。</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713133110777.png" alt="社区结构"></p><p>对于开源项目而言，抽象来看，社区一般有两种重要角色，</p><ul><li>用户（使用该项目的人）</li><li>贡献者（对项目有贡献的人）。</li></ul><p>这样一个社区模型，是一个分层模型。在普通用户中会有一些人将项目在生产中使用，这样的用户就是产品用户（Production User）；有些用户在使用过程中会遇到 Bug 或者发掘可以提升的点，并以 Issue 的形式暴露出来，这部分用户称之为 Issue-raised User，通常这类用户从 Production User 中产生。如果用户可以动手解决问题，并将 Bug Fix 和 improvement 提交到社区，这样的用户就是代码贡献者（Code Contributor）。如果一个贡献者提交了很多的代码，并且为项目做出了重大贡献，那么这样的贡献者称之为核心贡献者（Committer/Maintainer）。</p><p>通常来说一个健康的社区都是由这样的层次构建而来，并且每一层都有一定的比例，且在不停地由上而下的转换。开源中提到的社区实际上指的是由用户和代码贡献者共同构建的生态。</p><p>代码贡献者也具有层级结构，一般情况下可以将其分为如下几个层级：</p><ol><li>Contributors</li><li>Committer</li><li>PMC</li></ol><p>就责任而言，Contributors 主要负责具体的代码实现；Committer 更注重代码设计与评审，具体来说包括：</p><ol><li>代码与设计评审</li><li>分支管理</li><li>合并与回滚补丁</li><li>协助 PMC 发布版本</li></ol><p>相比而言，PMC 主要负责项目的决策、发展方向以及社区的生态建设，具体来说包括：</p><ol><li>提名并选举新的 PMC 成员和 Committer</li><li>决定路线图与版本发布</li><li>负责商标、知识产权管理</li><li>审查项目进度并提供反馈</li></ol><h3 id="如何参与社区工作"><a class="markdownIt-Anchor" href="#如何参与社区工作"></a> 如何参与社区工作</h3><p>参与社区工作的步骤可以抽象成</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/image-20250713133933700.png" alt="贡献流程"></p><ol><li>找到解决的 Issue；</li><li>创建开发分支</li><li>完成代码开发和测试；</li><li>提交合并 PR；</li><li>邀请 maintainer Code Review；</li><li>修改/合并/拒绝</li></ol><p>这里需要注意的是部分项目直接使用 github 的 issue 进行问题追踪；有些项目则使用 jira 作问题追踪。</p><blockquote><p>如果模块 Maintainer 认为这个 PR 存在较大问题，他可以直接 close 对应的 PR 和 Issue。</p></blockquote><p>未完待续…</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 个人 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> github </tag>
+            
+            <tag> committer </tag>
+            
+            <tag> ASF </tag>
+            
+            <tag> 开源 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Gravitino committer</title>
+      <link href="/2025/07/04/gravitino/2025-07-04-gravitino-committer/"/>
+      <url>/2025/07/04/gravitino/2025-07-04-gravitino-committer/</url>
+      
+        <content type="html"><![CDATA[<h2 id="成为-committer"><a class="markdownIt-Anchor" href="#成为-committer"></a> 成为 Committer</h2><p>🎉叮！开源成就 +1 🎖️<br>很荣幸正式成为 Apache Gravitino 的 Committer！</p><p><img src="https://typora-img-chart.oss-cn-beijing.aliyuncs.com/img/%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_95575bcd-629f-47f9-9203-657e17c3a911.png" alt="Gravitino Committer"></p><p>感谢 Gravitino 社区的每一位小伙伴，感谢你们的耐心指导、无私分享，以及一次次细致入微的 code review。没有你们的帮助，我无法取得今天的成果。也特别感谢公司领导和团队的支持，让我能够在工作中持续、深入地参与开源，将热爱转化为真正的影响力。</p><p>最后，由衷感谢一直陪伴在我身边的老婆狗🐶——那些焦虑的日夜里，是你的理解与陪伴抚平了我的情绪，让我得以坚定地走下去。</p><p>每一次机会都来之不易，愿我们都能抓住人生中的每一个可能，在热爱中坚定前行 ❤️</p>]]></content>
       
       
       <categories>
