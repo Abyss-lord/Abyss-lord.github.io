@@ -6,7 +6,7 @@
   <link href="http://abyss-lord.github.io/atom.xml" rel="self"/>
   
   <link href="http://abyss-lord.github.io/"/>
-  <updated>2025-07-14T09:34:59.502Z</updated>
+  <updated>2025-07-17T03:12:25.276Z</updated>
   <id>http://abyss-lord.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【matplotlib】可视化解决方案——柱状图标注问题</title>
+    <link href="http://abyss-lord.github.io/2025/07/17/2025-07-17-zhu-zhuang-tu-biao-zhu/"/>
+    <id>http://abyss-lord.github.io/2025/07/17/2025-07-17-zhu-zhuang-tu-biao-zhu/</id>
+    <published>2025-07-17T02:13:24.000Z</published>
+    <updated>2025-07-17T03:12:25.276Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="可视化解决方案" scheme="http://abyss-lord.github.io/categories/%E5%8F%AF%E8%A7%86%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    
+    
+    <category term="matplotlib" scheme="http://abyss-lord.github.io/tags/matplotlib/"/>
+    
+    <category term="柱状图" scheme="http://abyss-lord.github.io/tags/%E6%9F%B1%E7%8A%B6%E5%9B%BE/"/>
+    
+    <category term="可视化" scheme="http://abyss-lord.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Gravitino Committer 成长之路（2）</title>
     <link href="http://abyss-lord.github.io/2025/07/14/gravitino/2025-07-14-growing-path-2/"/>
     <id>http://abyss-lord.github.io/2025/07/14/gravitino/2025-07-14-growing-path-2/</id>
     <published>2025-07-14T06:40:16.000Z</published>
-    <updated>2025-07-14T09:34:59.502Z</updated>
+    <updated>2025-07-14T09:53:31.414Z</updated>
     
     
       
